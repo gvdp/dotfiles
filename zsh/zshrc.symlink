@@ -7,7 +7,7 @@ export ZSH=/Users/gvdp/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="kafeitu"
+ZSH_THEME="jnrowe"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -36,7 +36,7 @@ ZSH_THEME="kafeitu"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -48,8 +48,11 @@ ZSH_THEME="kafeitu"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -60,6 +63,8 @@ ZSH_THEME="kafeitu"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  kubectl
+  npm
   Jsontools
   yarn
 )
@@ -94,9 +99,29 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias idea="~/idea"
 
-alias gch="git checkout"
+if [[ -d ~/abs-shop ]]; then
+
+    # OASIS Variables
+    export OASIS_HOME=${HOME}/abs-shop
+    export HTTP_PROXY=http://proxy.muc:8080
+    export HTTPS_PROXY=http://proxy.muc:8080
+    export ALL_PROXY=http://proxy.muc:8080
+    export NO_PROXY=.bmwgroup.net,localhost,.muc,192.168.99.100
+    export PATH="$PATH:$OASIS_HOME"
+
+    alias idea='~/abs-shop/tools/idea'
+    alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
+
+else
+    alias idea="~/idea"
+fi
+
+if alias node12 &>/dev/null; then
+   node12;
+fi
+
+# todo: make this main / master branch aware
 alias gmm="git fetch && git merge origin/master --no-edit && git push"
 alias gcc="gaa && git commit --no-edit && git push"
 alias k="kubectl"
@@ -105,9 +130,6 @@ alias k="kubectl"
 [ -f /Users/gvdp/.travis/travis.sh ] && source /Users/gvdp/.travis/travis.sh
 
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/gvdp/.sdkman"
-[[ -s "/Users/gvdp/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gvdp/.sdkman/bin/sdkman-init.sh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -123,9 +145,13 @@ if [ -f '/Users/gvdp/code/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 if [ -f '/Users/gvdp/code/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/gvdp/code/tools/google-cloud-sdk/completion.zsh.inc'; fi
 
 
-eval $(thefuck --alias)
-eval $(thefuck --alias fck)
+# eval $(thefuck --alias)
+# eval $(thefuck --alias fck)
 
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$/.sdkman"
+[[ -s "$/.sdkman/bin/sdkman-init.sh" ]] && source "$/.sdkman/bin/sdkman-init.sh"
