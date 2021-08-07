@@ -4,6 +4,8 @@ export PATH=$HOME/bin:/usr/local/bin:/Users/gvdp/Library/Python/3.7/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/gvdp/.oh-my-zsh
 
+# source ~/.zshenv
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -54,8 +56,6 @@ ENABLE_CORRECTION="true"
 # see 'man strftime' for details.
 HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -74,6 +74,31 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# add color to man pages
+export MANROFFOPT='-c'
+export LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
+export LESS_TERMCAP_md=$(tput bold; tput setaf 6)
+export LESS_TERMCAP_me=$(tput sgr0)
+export LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4)
+export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7)
+export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+export LESS_TERMCAP_mr=$(tput rev)
+export LESS_TERMCAP_mh=$(tput dim)
+
+
+# If a local zshrc exists, source it
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+if [[ -a ~/.localrc ]]; then
+    source ~/.localrc
+fi
+
+
+
+# use nvim, but don't make me think about it
+[[ -n "$(command -v nvim)" ]] && alias vim="nvim"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -99,6 +124,32 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+else # macOS `ls`
+    colorflag="-G"
+fi
+
+alias l="ls -lah ${colorflag}"
+alias la="ls -AF ${colorflag}"
+alias ll="ls -lFh ${colorflag}"
+alias lld="ls -l | grep ^d"
+
+# Helpers
+alias grep='grep --color=auto'
+alias df='df -h' # disk free, in Gigabytes, not bytes
+alias du='du -h -c' # calculate disk usage for a folder
+
+
+# tmux aliases
+alias ta='tmux attach'
+alias tls='tmux ls'
+alias tat='tmux attach -t'
+alias tns='tmux new-session -s'
+
 
 if [[ -d ~/abs-shop ]]; then
 
@@ -151,6 +202,10 @@ if [ -f '/Users/gvdp/code/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# source "$DOTFILES/zsh/utils.zsh"
+source "$DOTFILES/zsh/prompt.zsh"
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$/.sdkman"
