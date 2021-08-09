@@ -94,6 +94,10 @@ setup_symlinks() {
         fi
     done
 
+    info "Creating oh-my-zsh link"
+
+    ln -s "$DOTFILES/zsh/oh-my-zsh/custom" "$ZSH/custom"
+
     # create vim symlinks
     # As I have moved off of vim as my full time editor in favor of neovim,
     # I feel it doesn't make sense to leave my vimrc intact in the dotfiles repo
@@ -168,6 +172,9 @@ setup_homebrew() {
     info "Installing fzf"
     "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
 }
+
+# todo: also install oh myzsh
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 function setup_shell() {
     title "Configuring shell"
