@@ -65,61 +65,7 @@ backup() {
 
 setup_symlinks() {
     title "Creating symlinks"
-
-    for file in $(get_linkables) ; do
-        target="$HOME/.$(basename "$file" '.symlink')"
-        if [ -e "$target" ]; then
-            info "~${target#$HOME} already exists... Skipping."
-        else
-            info "Creating symlink for $file"
-            ln -s "$file" "$target"
-        fi
-    done
-
-    echo -e
-    info "installing to ~/.config"
-    if [ ! -d "$HOME/.config" ]; then
-        info "Creating ~/.config"
-        mkdir -p "$HOME/.config"
-    fi
-
-    config_files=$(find "$DOTFILES/config" -maxdepth 1 2>/dev/null)
-    for config in $config_files; do
-        target="$HOME/.config/$(basename "$config")"
-        if [ -e "$target" ]; then
-            info "~${target#$HOME} already exists... Skipping."
-        else
-            info "Creating symlink for $config"
-            ln -s "$config" "$target"
-        fi
-    done
-
-    info "Creating oh-my-zsh link"
-
-    ln -s "$DOTFILES/zsh/oh-my-zsh/custom" "$ZSH/custom"
-
-    # create vim symlinks
-    # As I have moved off of vim as my full time editor in favor of neovim,
-    # I feel it doesn't make sense to leave my vimrc intact in the dotfiles repo
-    # as it is not really being actively maintained. However, I would still
-    # like to configure vim, so lets symlink ~/.vimrc and ~/.vim over to their
-    # neovim equivalent.
-
-    echo -e
-    info "Creating vim symlinks"
-    VIMFILES=( "$HOME/.vim:$DOTFILES/config/nvim"
-            "$HOME/.vimrc:$DOTFILES/config/nvim/init.vim" )
-
-    for file in "${VIMFILES[@]}"; do
-        KEY=${file%%:*}
-        VALUE=${file#*:}
-        if [ -e "${KEY}" ]; then
-            info "${KEY} already exists... skipping."
-        else
-            info "Creating symlink for $KEY"
-            ln -s "${VALUE}" "${KEY}"
-        fi
-    done
+    ./run-dotbot
 }
 
 #setup_git() {
@@ -164,17 +110,15 @@ setup_homebrew() {
         test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
     fi
 
-    # install brew dependencies from Brewfile
+    # run-dotbot brew dependencies from Brewfile
     brew bundle
 
-    # install fzf
+    # run-dotbot fzf
     echo -e
     info "Installing fzf"
     "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
 }
 
-# todo: also install oh myzsh
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 function setup_shell() {
     title "Configuring shell"
@@ -189,6 +133,10 @@ function setup_shell() {
         chsh -s "$zsh_path"
         info "default shell changed to $zsh_path"
     fi
+
+    # todo: also run-dotbot oh myzsh
+    # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 }
 
 #function setup_terminfo() {
@@ -278,14 +226,6 @@ case "$1" in
         setup_terminfo
         ;;
     macos)
-        setup_macos
-        ;;
-    all)
-        setup_symlinks
-        setup_terminfo
-        setup_homebrew
-        setup_shell
-        setup_git
         setup_macos
         ;;
     *)

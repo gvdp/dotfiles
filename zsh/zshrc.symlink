@@ -65,6 +65,7 @@ plugins=(
   git
   npm
   alias-tips
+  bd
 )
 
 source $ZSH/oh-my-zsh.sh
