@@ -196,9 +196,7 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
-# source "$DOTFILES/zsh/utils.zsh"
-# source "$DOTFILES/zsh/prompt.zsh"
-
+alias dot="cd $DOTFILES"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$/.sdkman"

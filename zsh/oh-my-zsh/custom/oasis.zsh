@@ -23,6 +23,7 @@ alias ams='cd ~/abs-shop/code/services/asset-management-service'
 alias ois='cd ~/abs-shop/code/services/outbound-invoice-service'
 
 alias serv='cd ~/abs-shop/code/services'
+alias envs='cd ~/abs-shop/code/environments'
 
 alias ds='cd ~/abs-shop/code/common/design-system'
 
@@ -32,6 +33,7 @@ alias ds='cd ~/abs-shop/code/common/design-system'
 alias kdev2='k9s --context dev-k8s --namespace dev-2'
 alias kdev4='k9s --context dev-k8s --namespace dev-4'
 
+alias kacc3='k9s --context acc-k8s --namespace acc-3'
 alias kacc2='k9s --context acc-k8s --namespace acc-2'
 alias kacc1='k9s --context acc-k8s --namespace acc-1'
 alias ksit1='k9s --context acc-k8s --namespace sit-1'
