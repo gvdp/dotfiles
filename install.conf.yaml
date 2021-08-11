@@ -1,0 +1,18 @@
+- defaults:
+    link:
+      relink: true
+
+- link:
+    ~/.zshrc: zsh/zshrc.symlink
+    ~/.zshenv: zsh/zshenv.symlink
+    ~/.zprofile: zsh/zprofile.symlink
+    $ZSH/custom:
+      create: true
+      glob: true
+      path: zsh/oh-my-zsh/custom/*
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+
+#- brewfile:
+#    - Brewfile

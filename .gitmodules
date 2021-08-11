@@ -1,0 +1,10 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "dotbot-brew"]
+	path = dotbot-brew
+	url = https://github.com/d12frosted/dotbot-brew.git
+[submodule "zsh/oh-my-zsh/custom/plugins/alias-tips"]
+	path = zsh/oh-my-zsh/custom/plugins/alias-tips
+	url = https://github.com/djui/alias-tips

@@ -64,6 +64,7 @@ HIST_STAMPS="mm/dd/yyyy"
 plugins=(
   git
   npm
+  alias-tips
 )
 
 source $ZSH/oh-my-zsh.sh
