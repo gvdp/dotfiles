@@ -164,7 +164,7 @@ if [[ -d ~/abs-shop ]]; then
     alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
 
 else
-    alias idea="~/idea"
+    alias idea="~/.idea/idea"
 fi
 
 if alias node12 &>/dev/null; then

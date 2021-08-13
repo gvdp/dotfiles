@@ -26,6 +26,7 @@ if OS.mac?
     # cask "audio-hijack"
     # cask "paw"
     # cask "postman"
+    cask "jetbrains-toolbox"
 
     # Browsers
     # cask "firefox"
