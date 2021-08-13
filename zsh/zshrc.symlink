@@ -68,6 +68,9 @@ plugins=(
   bd
 )
 
+# todo: not sure if this is really what I want
+plugins+=(careful_rm)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -174,8 +177,12 @@ fi
 
 alias k="kubectl"
 
-# added by travis gem
-[ -f /Users/gvdp/.travis/travis.sh ] && source /Users/gvdp/.travis/travis.sh
+function zsh_plugin() {
+  cd $DOTFILES/zsh/oh-my-zsh/custom/plugins
+  git submodule add $1
+  . $DOTFILES/install.sh link
+  # todo: also make this add to the plugin array here in the .zshrc
+}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

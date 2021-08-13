@@ -5,3 +5,6 @@
 [submodule "zsh/oh-my-zsh/custom/plugins/alias-tips"]
 	path = zsh/oh-my-zsh/custom/plugins/alias-tips
 	url = https://github.com/djui/alias-tips
+[submodule "zsh/oh-my-zsh/custom/plugins/careful_rm"]
+	path = zsh/oh-my-zsh/custom/plugins/careful_rm
+	url = git@github.com:MikeDacre/careful_rm.git
