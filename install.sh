@@ -68,8 +68,9 @@ setup_symlinks() {
     ./run-dotbot
 }
 
-#setup_git() {
-#    title "Setting up Git"
+setup_git() {
+    title "Setting up Git"
+    git config core.hooksPath githooks
 #
 #    defaultName=$(git config user.name)
 #    defaultEmail=$(git config user.email)
@@ -93,7 +94,7 @@ setup_symlinks() {
 #            git config --global credential.helper "cache --timeout 3600"
 #        fi
 #    fi
-#}
+}
 
 setup_homebrew() {
     title "Setting up Homebrew"

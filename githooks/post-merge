@@ -1,0 +1,7 @@
+#/bin/bash
+
+echo "rerunning linking"
+
+./run-dotbot
+
+source ~/.zshrc
