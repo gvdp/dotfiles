@@ -111,10 +111,10 @@ setup_homebrew() {
         test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
     fi
 
-    # run-dotbot brew dependencies from Brewfile
+    # install brew dependencies from Brewfile
     brew bundle
 
-    # run-dotbot fzf
+    # install fzf
     echo -e
     info "Installing fzf"
     "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
