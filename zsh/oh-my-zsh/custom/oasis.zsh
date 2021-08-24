@@ -38,3 +38,18 @@ alias kacc3='k9s --context acc-k8s --namespace acc-3'
 alias kacc2='k9s --context acc-k8s --namespace acc-2'
 alias kacc1='k9s --context acc-k8s --namespace acc-1'
 alias ksit1='k9s --context acc-k8s --namespace sit-1'
+
+function add-to-dev() (
+  branch=$(git branch --show-current)
+  repo=$(git remote get-url origin)
+  service=$(echo $repo | cut -d / -f 5 | cut -d . -f 1)
+
+  echo "adding branch $branch of $service to dev $1"
+
+  cd ~/abs-shop/code/environments/ace-cloud-dev
+  gco master
+  git pull
+  gsed -i "/${service}/s,ref=.*,ref=${branch},g" "dev-$1/kustomization.yaml"
+  gcam "Update ${service} on dev-$1"
+  gp
+)
