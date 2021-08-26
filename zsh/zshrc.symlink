@@ -198,10 +198,6 @@ if [ -f '/Users/gvdp/code/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gvdp/code/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/gvdp/code/tools/google-cloud-sdk/completion.zsh.inc'; fi
 
-
-# eval $(thefuck --alias)
-eval $(thefuck --alias fck)
-
 #export PATH="/usr/local/opt/ruby/bin:$PATH"
 #export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 #export PATH="/usr/local/opt/ruby/bin:$PATH"
