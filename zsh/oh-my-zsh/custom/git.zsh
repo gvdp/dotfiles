@@ -8,3 +8,7 @@ function gfc() {
   gf
   git switch $(git branch -a | fzf | tr -d '[ ]' | sed 's/remotes\/origin\///')
 }
+
+function gign() {
+  echo $1 >> .gitignore
+}
