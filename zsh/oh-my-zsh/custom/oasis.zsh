@@ -20,6 +20,7 @@ alias ft='cd ~/abs-shop/code/common/frontend-toolbox'
 
 alias cms='cd ~/abs-shop/code/services/contract-management-service'
 alias ams='cd ~/abs-shop/code/services/asset-management-service'
+alias bppcs='cd ~/abs-shop/code/services/business-partner-payment-configuration-service'
 alias ois='cd ~/abs-shop/code/services/outbound-invoice-service'
 alias abi='cd ~/abs-shop/code/services/ace-to-bi-service'
 
