@@ -6,10 +6,17 @@
     ~/.zshrc: zsh/zshrc.symlink
     ~/.zshenv: zsh/zshenv.symlink
     ~/.zprofile: zsh/zprofile.symlink
+    $ZSH/custom/themes/gvdp.zsh-theme:
+      create: true
+      path: zsh/oh-my-zsh/custom/themes/gvdp.zsh-theme
     $ZSH/custom:
       create: true
       glob: true
-      path: zsh/oh-my-zsh/custom/*
+      path: zsh/oh-my-zsh/custom/*.zsh
+    $ZSH/custom/plugins:
+      create: true
+      glob: true
+      path: zsh/oh-my-zsh/custom/plugins/*
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
