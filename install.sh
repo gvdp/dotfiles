@@ -66,6 +66,7 @@ backup() {
 setup_symlinks() {
     title "Creating symlinks"
     ./run-dotbot
+    mackup restore
 }
 
 setup_git() {
@@ -129,8 +130,7 @@ function setup_shell() {
         info "default shell changed to $zsh_path"
     fi
 
-    # todo: also run-dotbot oh myzsh
-    # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 }
 
