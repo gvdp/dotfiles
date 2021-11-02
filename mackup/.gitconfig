@@ -1,0 +1,10 @@
+[user]
+	name = gvdp
+	email = vdputteglenn@gmail.com
+[core]
+	autocrlf = input
+[init]
+	templatedir = ~/.git-templates
+	defaultBranch = main
+[pull]
+	rebase = true
