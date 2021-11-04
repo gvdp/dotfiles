@@ -10,11 +10,31 @@
 #
 
 
-alias oia='cd ~/abs-shop/code/apps/outbound-invoice-app'
+function oia() {
+ cd ~/abs-shop/code/apps/outbound-invoice-app
+}
+
+
 alias ca='cd ~/abs-shop/code/apps/contract-app'
 alias apa='cd ~/abs-shop/code/apps/asset-purchase-app'
 alias asa='cd ~/abs-shop/code/apps/asset-app'
-alias pma='cd ~/abs-shop/code/apps/payment-management-app'
+
+function ssa() {
+  cd ~/abs-shop/code/apps/service-subscription-app
+}
+
+function sss() {
+  cd ~/abs-shop/code/services/service-subscription-service
+}
+
+function pma() {
+  cd ~/abs-shop/code/apps/payment-management-app
+}
+
+function iia() {
+  cd ~/abs-shop/code/apps/inbound-invoice-app
+}
+
 alias cm='cd ~/abs-shop/code/common/alphabet-cas-module'
 alias ft='cd ~/abs-shop/code/common/frontend-toolbox'
 
@@ -22,6 +42,7 @@ alias cms='cd ~/abs-shop/code/services/contract-management-service'
 alias ams='cd ~/abs-shop/code/services/asset-management-service'
 alias bppcs='cd ~/abs-shop/code/services/business-partner-payment-configuration-service'
 alias ois='cd ~/abs-shop/code/services/outbound-invoice-service'
+alias iis='cd ~/abs-shop/code/services/inbound-invoice-service'
 alias abi='cd ~/abs-shop/code/services/ace-to-bi-service'
 
 alias serv='cd ~/abs-shop/code/services'
@@ -40,6 +61,9 @@ alias kacc2='k9s --context acc-k8s --namespace acc-2'
 alias kacc1='k9s --context acc-k8s --namespace acc-1'
 alias ksit1='k9s --context acc-k8s --namespace sit-1'
 
+alias init_dblab='sh ~/dotfiles/oasis-script/init_dblab.zsh'
+alias dbclone='dblab clone create --username glenn --password glenn --id=bynx-clone'
+
 function add-to-dev() (
   branch=$(git branch --show-current)
   repo=$(git remote get-url origin)
@@ -54,3 +78,4 @@ function add-to-dev() (
   gcam "Update ${service} on dev-$1"
   gp
 )
+

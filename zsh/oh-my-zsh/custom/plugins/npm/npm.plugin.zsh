@@ -62,13 +62,37 @@ function upft() {
 
 
 function upcore() {
-   npm i --save @alphabet/core-components@latest --save-exact
+   npm i --save @alphabet/core-components@">0.0.0" --save-exact
    git reset HEAD
    git add package.json
    git add package-lock.json
    gcmsg "Update core components version"
    gp
 }
+
+function addCasTo() (
+  branch=$(git branch --show-current)
+  $1
+  gco $branch
+  icas $branch
+  gcam "Update cas module" && gp
+)
+
+function remf() {
+  fd .spec.ts$ | xargs gsed -i s/fdescribe/describe/
+  fd .spec.ts$ | xargs gsed -i s/fit/it/
+}
+
+# wont work until tt is on Tekton because on Jenkins you need to specify the exact build number
+#function addTTTo() (
+#  branch=$(git branch --show-current)
+#  $1
+#  g stash
+#  gco $branch
+#  itt $branch
+#  gcam "Update testing toolbox" && gp
+#  gstp
+#)
 
 function cmod() {
   npm i --save @alphabet/cas-module@0.0.0-$1

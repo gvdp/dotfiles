@@ -1,5 +1,6 @@
 .idea/
 
-zsh/oh-my-zsh/custom/oasis.zsh
+/zsh/oh-my-zsh/custom/oasis.zsh
+/oasis-script
 
 mackup.back/
