@@ -58,6 +58,7 @@ plugins=(
   alias-tips
   bd
   careful_rm
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -110,10 +111,10 @@ alias df='df -h' # disk free, in Gigabytes, not bytes
 alias du='du -h -c' # calculate disk usage for a folder
 
 # tmux aliases
-alias ta='tmux attach'
-alias tls='tmux ls'
-alias tat='tmux attach -t'
-alias tns='tmux new-session -s'
+# alias ta='tmux attach'
+# alias tls='tmux ls'
+# alias tat='tmux attach -t'
+# alias tns='tmux new-session -s'
 
 
 if [[ -d ~/abs-shop ]]; then
@@ -160,6 +161,7 @@ alias fzp="fzf --preview 'cat {}'"
 alias of='vi $(fzf)'
 alias crep='cd $(fd -d 2 --type d . $CODE_FOLDER | fzf)'
 alias gal='alias | grep'
+alias tree='tree -d -L 3 --prune'
 
 # function for timing shell startup
 timezsh() {
