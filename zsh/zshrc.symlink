@@ -202,8 +202,13 @@ if [ -f '/Users/gvdp/code/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '
 #export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 #export PATH="/usr/local/opt/ruby/bin:$PATH"
 
-# todo: should be variable per machine
-export CODE_FOLDER="~/abs-shop/code/"
+
+if [ -f '/Users/gvdp/abs-shop/' ];
+then
+    export CODE_FOLDER="/Users/gvdp/abs-shop/code/"
+else
+    export CODE_FOLDER="~/code/"
+fi
 
 alias dot="cd $DOTFILES"
 alias resource="source ~/.zshrc"
