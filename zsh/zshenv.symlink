@@ -5,22 +5,19 @@
 
 
 export DOTFILES="$(dirname "$(dirname "$(readlink "${(%):-%N}")")")"
-
-
+export EDITOR='nvim'
+export GIT_EDITOR='nvim'
 export CACHEDIR="$HOME/.local/share"
 export VIM_TMP="$HOME/.vim-tmp"
+
+
 [[ -d "$CACHEDIR" ]] || mkdir -p "$CACHEDIR"
 [[ -d "$VIM_TMP" ]] || mkdir -p "$VIM_TMP"
-
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
 
 fpath=(
-    $DOTFILES/zsh/functions
     /usr/local/share/zsh/site-functions
     $fpath
 )
 
 typeset -aU path
-
-export EDITOR='nvim'
-export GIT_EDITOR='nvim'

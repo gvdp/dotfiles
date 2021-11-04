@@ -1,5 +1,3 @@
-echo "sourcing bd"
-
 bd () {
   (($#<1)) && {
     print -- "usage: $0 <name-of-any-parent-directory>"
