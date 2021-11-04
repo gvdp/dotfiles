@@ -137,8 +137,7 @@ alias k="kubectl"
 
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 
 
 
@@ -150,7 +149,7 @@ else
 fi
 
 alias dot="cd $DOTFILES"
-alias reload="source ~/.zshrc"
+alias reload="exec zsh"
 alias code="cd $CODE_FOLDER"
 
 #  - [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -162,6 +161,11 @@ alias of='vi $(fzf)'
 alias crep='cd $(fd -d 2 --type d . $CODE_FOLDER | fzf)'
 alias gal='alias | grep'
 
+# function for timing shell startup
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="$/.sdkman"

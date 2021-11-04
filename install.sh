@@ -113,6 +113,13 @@ setup_homebrew() {
     echo -e
     info "Installing fzf"
     "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
+
+     # install nvm
+    echo -e
+    if test ! "$(command -v nvm)"; then
+      info "Installing nvm"
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    fi
 }
 
 
