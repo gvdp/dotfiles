@@ -1,7 +1,8 @@
-#/bin/bash
+#!/bin/zsh
 
 echo "rerunning linking"
 
 ./run-dotbot
 
+echo "resourcing zsh"
 source ~/.zshrc
