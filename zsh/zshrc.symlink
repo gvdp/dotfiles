@@ -148,7 +148,7 @@ if [ -f '/Users/gvdp/abs-shop/' ];
 then
     export CODE_FOLDER="/Users/gvdp/abs-shop/code/"
 else
-    export CODE_FOLDER="~/code/"
+    export CODE_FOLDER="~/code"
 fi
 
 alias dot="cd $DOTFILES"
@@ -161,7 +161,7 @@ export FZF_DEFAULT_COMMAND='fd -I --type f'
 
 alias fzp="fzf --preview 'cat {}'"
 alias of='vi $(fzf)'
-alias crep='cd $(fd -d 2 --type d . $CODE_FOLDER | fzf)'
+alias crep='cd $(fd -d 2 --type d . ~/code | fzf)'
 alias gal='alias | grep'
 alias tree='tree -d -L 3 --prune'
 
