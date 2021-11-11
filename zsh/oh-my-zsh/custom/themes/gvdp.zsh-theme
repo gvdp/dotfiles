@@ -11,6 +11,7 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 zstyle ':vcs_info:*' enable git
 
 add-zsh-hook precmd prompt_vcs
+add-zsh-hook precmd prompt_node
 
 prompt_vcs () {
     vcs_info
@@ -26,6 +27,16 @@ prompt_vcs () {
     fi
 }
 
+prompt_node() {
+	if [ -f package.json ]; then
+# 			colors are not really nice here
+# 			node_version="%K{green}%F{black} "$'\Ue0b0'" %f "$'\Ue718'" $(node --version) %k %F{green} "$'\Ue0b0'" %f"
+			node_version=" %F{green}"$'\Ue718'" $(node --version)%f "
+	else
+			node_version=" "
+	fi
+}
+
 function {
     if [[ -n "$SSH_CLIENT" ]]; then
         PROMPT_HOST=" ($HOST)"
@@ -37,4 +48,5 @@ function {
 local ret_status="%(?:%{$fg_bold[green]%}▷:%{$fg_bold[red]%}▷ %s%?)"
 
 
-PROMPT='${ret_status}%{$fg[blue]%}${PROMPT_HOST}%{$fg_bold[green]%} %{$fg_bold[yellow]%}%2~ ${vcs_info_msg_0_}${dir_status}%{$reset_color%} '
+PROMPT='${ret_status} %{$fg_bold[yellow]%}%2~${node_version}${vcs_info_msg_0_}${dir_status} %{$reset_color%} '
+# RPROMPT='${node_version}'
