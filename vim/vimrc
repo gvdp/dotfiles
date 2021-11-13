@@ -1,2 +1,12 @@
 syntax on
 
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+
+
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'tpope/vim-sensible'
+
+call plug#end()
