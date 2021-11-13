@@ -97,7 +97,8 @@ function remf() {
 function cmod() {
   npm i --save @alphabet/cas-module@0.0.0-$1
 }
- 
+
+alias ns='npm run start'
 alias tw='npm run test-watch-chrome' 
 alias cdep='gaa && gcmsg "Update dependencies" && git push'
 alias plock='npm i && gaa && gcmsg "package lock" && git push'
