@@ -53,6 +53,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  vi-mode
   git
   npm
   alias-tips
@@ -154,6 +155,9 @@ fi
 alias dot="cd $DOTFILES"
 alias reload="omz reload"
 alias code="cd $CODE_FOLDER"
+
+VI_MODE_SET_CURSOR=true
+
 
 #  - [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height 50% --border'
