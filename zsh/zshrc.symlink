@@ -156,6 +156,7 @@ alias dot="cd $DOTFILES"
 alias vdot="vim $DOTFILES"
 alias reload="omz reload"
 alias code="cd $CODE_FOLDER"
+alias cat="bat"
 
 VI_MODE_SET_CURSOR=true
 
