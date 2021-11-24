@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>ideasasylum_amazon_to_uk</string>
+	<key>connections</key>
+	<dict>
+		<key>1887049A-7DB7-4F09-884B-AFF88F7B927E</key>
+		<array/>
+		<key>D866DA1D-5E55-49F2-AF16-AB9C87C22355</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1887049A-7DB7-4F09-884B-AFF88F7B927E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Jamie Lawrence</string>
+	<key>description</key>
+	<string>Change current Chome tab from amazon.com to amazon.co.uk</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Amazon to UK</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>amazonuk</string>
+				<key>subtext</key>
+				<string>Change a URL to the Amazon.co.uk shop</string>
+				<key>text</key>
+				<string>amazon to uk</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>D866DA1D-5E55-49F2-AF16-AB9C87C22355</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>--# pbpaste | sed -E 's/(.*amazon\.)(com)(.*)/\1co\.uk\3/' | pbcopy | pbpaste
+
+tell application "System Events"
+  set myFrontMost to name of first item of (processes whose frontmost is true)
+end tell
+
+log myFrontMost
+
+property theURL : ""
+
+if myFrontMost is "Google Chrome" then
+  tell application "Google Chrome"
+    set theURL to URL of active tab of window 1
+  end tell
+
+
+  log theURL
+
+  set findList to "(.*amazon\\.)(com)(.*)"
+  set replaceList to "\\1co\\.uk\\3"
+  set sedCmd to "echo " &amp; theURL &amp; " | sed -E 's/" &amp; findList &amp; "/" &amp; replaceList &amp; "/'"
+  log sedCmd
+  set newURL to do shell script sedCmd
+
+  log newURL
+
+  tell application "Google Chrome"
+    activate
+    set URL of active tab of window 1 to newURL
+  end tell
+
+end if</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1887049A-7DB7-4F09-884B-AFF88F7B927E</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Changes Chrome’s current tab from the amazon.com page to the appropriate amazon.co.uk site
+
+Command:
+
+amazonuk  == changes the current Google Chrome tab from an amamzon.com url to the amazon.co.uk version</string>
+	<key>uidata</key>
+	<dict>
+		<key>1887049A-7DB7-4F09-884B-AFF88F7B927E</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+		<key>D866DA1D-5E55-49F2-AF16-AB9C87C22355</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://ideasasylum.com</string>
+</dict>
+</plist>
