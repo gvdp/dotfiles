@@ -108,8 +108,6 @@ setup_homebrew() {
         # Run as a login shell (non-interactive) so that the script doesn't pause for user input
 	# todo: needs sudo so doesnt work out of the box
         curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash --login
-	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/gvdp/.zprofile
-	eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
     # install brew dependencies from Brewfile

@@ -18,6 +18,7 @@ brew "mas"
 cask "bitwarden"
 cask "iterm2"
 cask "spotify"
+cask "alfred"
 cask "spotmenu"
 # cask "vlc"
 
