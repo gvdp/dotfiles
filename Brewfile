@@ -13,12 +13,13 @@ brew "mas"
 # cask "notion"
 # cask "postman"
 # cask "jetbrains-toolbox"
-cask "adobe-acrobat-reader"
-cask "docker-toolbox"
+# cask "adobe-acrobat-reader"
+# cask "docker-toolbox"
+cask "bitwarden"
 cask "iterm2"
 cask "spotify"
 cask "spotmenu"
-cask "vlc"
+# cask "vlc"
 
 # mas "Numbers", id: 409203825
 # mas "Pages", id: 409201541
@@ -26,7 +27,7 @@ cask "vlc"
 
     # Browsers
 cask "firefox"
-# cask "brave-browser"
+cask "brave-browser"
 
     # Fonts
 cask "font-fira-code"
@@ -53,8 +54,8 @@ brew "tree"
 brew "vim"
 brew "wget"
 brew "watch"
-brew "zsh"
-brew "derailed/k9s/k9s"
+# brew "zsh"
+# brew "derailed/k9s/k9s"
 brew "kubernetes-cli"
 brew "kustomize"
 

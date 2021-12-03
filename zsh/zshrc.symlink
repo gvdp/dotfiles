@@ -59,7 +59,6 @@ plugins=(
   alias-tips
   bd
   careful_rm
-  tmux
 )
 
 plugins+=(zsh-syntax-highlighting)

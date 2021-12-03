@@ -66,25 +66,28 @@ backup() {
 setup_symlinks() {
     title "Creating symlinks"
     ./run-dotbot
-    # mackup restore
+    mackup restore
 }
 
 setup_git() {
     title "Setting up Git"
     git config core.hooksPath githooks
 #
-#    defaultName=$(git config user.name)
-#    defaultEmail=$(git config user.email)
-#    defaultGithub=$(git config github.user)
-#
-#    read -rp "Name [$defaultName] " name
-#    read -rp "Email [$defaultEmail] " email
-#    read -rp "Github username [$defaultGithub] " github
-#
-#    git config -f ~/.gitconfig-local user.name "${name:-$defaultName}"
-#    git config -f ~/.gitconfig-local user.email "${email:-$defaultEmail}"
-#    git config -f ~/.gitconfig-local github.user "${github:-$defaultGithub}"
-#
+    defaultName=$(git config user.name)
+    defaultEmail=$(git config user.email)
+    defaultGithub=$(git config github.user)
+
+    read -rp "Name [$defaultName] " name
+    read -rp "Email [$defaultEmail] " email
+    read -rp "Github username [$defaultGithub] " github
+
+    git config -f ~/.gitconfig-local user.name "${name:-$defaultName}"
+    git config -f ~/.gitconfig-local user.email "${email:-$defaultEmail}"
+    git config -f ~/.gitconfig-local github.user "${github:-$defaultGithub}"
+
+    ssh-keygen -t ed25519 -C "vdputteglenn@gmail.com"
+    eval "$(ssh-agent -s)"
+
 #    if [[ "$(uname)" == "Darwin" ]]; then
 #        git config --global credential.helper "osxkeychain"
 #    else
@@ -103,7 +106,10 @@ setup_homebrew() {
     if test ! "$(command -v brew)"; then
         info "Homebrew not installed. Installing."
         # Run as a login shell (non-interactive) so that the script doesn't pause for user input
+	# todo: needs sudo so doesnt work out of the box
         curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash --login
+	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/gvdp/.zprofile
+	eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
     # install brew dependencies from Brewfile
@@ -241,4 +247,4 @@ case "$1" in
 esac
 
 echo -e
-success "Done."
+succes "Done."
