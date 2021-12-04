@@ -20,6 +20,7 @@ cask "iterm2"
 cask "spotify"
 cask "alfred"
 cask "spotmenu"
+cask "rectangle"
 # cask "vlc"
 
 # mas "Numbers", id: 409203825
@@ -59,4 +60,5 @@ brew "watch"
 # brew "derailed/k9s/k9s"
 brew "kubernetes-cli"
 brew "kustomize"
+brew "gh"
 
