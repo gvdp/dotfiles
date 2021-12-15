@@ -176,6 +176,9 @@ if type bat > /dev/null; then
   alias cat="bat"
 fi
 
+# TODO: execute this automatically when entering dotfile folder and git is not connected
+alias gssh='eval $(ssh-agent -s) && ssh-add ~/.ssh/gvdp_github'
+
 VI_MODE_SET_CURSOR=true
 
 
