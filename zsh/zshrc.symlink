@@ -179,6 +179,10 @@ fi
 # TODO: execute this automatically when entering dotfile folder and git is not connected
 alias gssh='eval $(ssh-agent -s) && ssh-add ~/.ssh/gvdp_github'
 
+function lip() {
+  ip addr | awk '/inet .* eth0/ {print $2}' | sed 's/\/20//'
+}
+
 VI_MODE_SET_CURSOR=true
 
 
