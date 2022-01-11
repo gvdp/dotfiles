@@ -245,4 +245,4 @@ case "$1" in
 esac
 
 echo -e
-succes "Done."
+success "Done."
