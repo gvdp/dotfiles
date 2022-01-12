@@ -118,12 +118,7 @@ setup_homebrew() {
     info "Installing fzf"
     "$(brew --prefix)"/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
 
-     # install nvm
-    echo -e
-    if test ! "$(command -v nvm)"; then
-      info "Installing nvm"
-      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-    fi
+     # install volta ...
 
     # install vim plug
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
