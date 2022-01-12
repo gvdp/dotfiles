@@ -129,7 +129,7 @@ setup_homebrew() {
 function setup_shell() {
     title "Configuring shell"
 
-    [[ -n "$(command -v brew)" ]] && zsh_path="$(brew --prefix)/bin/zsh" || zsh_path="$(which zsh)"
+    zsh_path="$(which zsh)"
     if ! grep "$zsh_path" /etc/shells; then
         info "adding $zsh_path to /etc/shells"
         echo "$zsh_path" | sudo tee -a /etc/shells
