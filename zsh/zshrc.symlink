@@ -146,16 +146,7 @@ fi
 
 alias k="kubectl"
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
-
 [ -s "/home/gvdp/.volta/bin" ] && export PATH="/home/gvdp/.volta/bin:${PATH}";
-
-
-function nvu() {
-   nvm use $(cat .nvmrc | xargs echo)
-}
 
 if [ -f '/Users/gvdp/abs-shop/' ];
 then
@@ -213,3 +204,5 @@ function zsh_plugin() {
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="$/.sdkman"
 #[[ -s "$/.sdkman/bin/sdkman-init.sh" ]] && source "$/.sdkman/bin/sdkman-init.sh"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
