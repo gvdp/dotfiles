@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Currency Converter</name>
-  <version>1.2</version>
-  <bundle>com.etenal.currencyexchange</bundle>
-  <updated>1526397443</updated>
-  <file>currency.exchange.alfredworkflow</file>
-</workflow>

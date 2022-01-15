@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>alfred-cheat</name>
-  <version>1.2.0</version>
-  <bundle>com.wayneyao.cheat</bundle>
-  <updated>1564551275</updated>
-  <file>cheat.alfredworkflow</file>
-</workflow>
