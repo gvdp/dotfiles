@@ -201,8 +201,18 @@ function zsh_plugin() {
   # todo: also make this add to the plugin array here in the .zshrc
 }
 
+
+# disk space functions for rpi
+# du -h -d 2 /media/gvdp/Schefke/ | sort -h -r | head -n 10
+# df -h
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #export SDKMAN_DIR="$/.sdkman"
 #[[ -s "$/.sdkman/bin/sdkman-init.sh" ]] && source "$/.sdkman/bin/sdkman-init.sh"
+
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# dont autocorrect arguments, only commands
+unsetopt correct_all  
+setopt correct
