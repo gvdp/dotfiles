@@ -62,3 +62,6 @@ brew "kubernetes-cli"
 brew "kustomize"
 brew "gh"
 
+# react native
+brew "watchman"
+
