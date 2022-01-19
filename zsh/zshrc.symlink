@@ -69,7 +69,6 @@ plugins+=(zsh-syntax-highlighting)
 # todo: only do on macos
 # plugins+=(careful_rm)
 
-echo $ZSH
 
 source $ZSH/oh-my-zsh.sh
 
