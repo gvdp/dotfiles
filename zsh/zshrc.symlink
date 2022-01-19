@@ -183,6 +183,8 @@ export FZF_DEFAULT_COMMAND='fd -I --type f'
 alias fzp="fzf --preview 'cat {}'"
 alias of='vi $(fzf)'
 alias crep='cd $(fd -d 2 --type d . ~/code | fzf)'
+alias fcode='code $(fd -d 2 --type d . ~/code | fzf)'
+
 alias gal='alias | grep'
 alias tree='tree -d -L 3 --prune'
 
