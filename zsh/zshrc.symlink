@@ -126,33 +126,11 @@ alias du='du -h -c' # calculate disk usage for a folder
 # alias tns='tmux new-session -s'
 
 
-if [[ -d ~/abs-shop ]]; then
-
-    # OASIS Variables
-    export OASIS_HOME=${HOME}/abs-shop
-    export HTTP_PROXY=http://proxy.muc:8080
-    export HTTPS_PROXY=http://proxy.muc:8080
-    export ALL_PROXY=http://proxy.muc:8080
-    export NO_PROXY=.bmwgroup.net,localhost,.muc,192.168.99.100
-    export PATH="$PATH:$OASIS_HOME"
-
-    alias idea='~/abs-shop/tools/idea'
-    alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
-
-else
-    alias idea="~/.idea/idea"
-fi
-
 alias k="kubectl"
 
 [ -s "/home/gvdp/.volta/bin" ] && export PATH="/home/gvdp/.volta/bin:${PATH}";
 
-if [ -f '/Users/gvdp/abs-shop/' ];
-then
-    export CODE_FOLDER="/Users/gvdp/abs-shop/code/"
-else
-    export CODE_FOLDER="~/code"
-fi
+export CODE_FOLDER="~/code"
 
 alias dot="cd $DOTFILES"
 alias vdot="vim $DOTFILES"
@@ -188,6 +166,10 @@ alias fcode='code $(fd -d 2 --type d . ~/code | fzf)'
 alias gal='alias | grep'
 alias tree='tree -d -L 3 --prune'
 
+alias ecli='node /Users/gvdp/code/ember/ember-project-cli/bin/index.js'
+
+# alias pod='arch -x86_64 pod'
+
 # function for timing shell startup
 timezsh() {
   shell=${1-$SHELL}
@@ -218,6 +200,7 @@ setopt correct
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 

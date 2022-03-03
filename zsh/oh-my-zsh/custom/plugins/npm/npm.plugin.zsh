@@ -20,6 +20,7 @@ function nt() {
 alias nr='npm run'
 alias ns='npm run start'
 alias ys='yarn start'
+alias yt='yarn test'
 alias tw='npm run test-watch-chrome' 
 alias cdep='gaa && gcmsg "Update dependencies" && git push'
 alias plock='npm i && gaa && gcmsg "package lock" && git push'

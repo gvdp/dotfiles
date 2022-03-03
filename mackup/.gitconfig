@@ -1,8 +1,9 @@
 [user]
-	name = gvdp
-	email = vdputteglenn@gmail.com
+	name = Glenn Van De Putte
+	email = glenn.vandeputte@bagaar.be
 [core]
 	autocrlf = input
+	excludesfile = /Users/gvdp/.globalgitignore
 [init]
 	templatedir = ~/.git-templates
 	defaultBranch = main
