@@ -1,4 +1,6 @@
 
+alias grd="gf && grb origin/develop"
+
 
 function gprune() {
   echo "pruning with $(git_main_branch)"
