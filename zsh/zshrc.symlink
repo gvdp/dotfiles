@@ -134,6 +134,7 @@ export CODE_FOLDER="~/code"
 
 alias dot="cd $DOTFILES"
 alias vdot="vim $DOTFILES"
+alias vsh="vim ~/.zshrc"
 alias reload="omz reload"
 alias cf="cd $CODE_FOLDER"
 if type batcat > /dev/null; then
