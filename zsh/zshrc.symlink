@@ -66,8 +66,7 @@ plugins=(
 )
 
 plugins+=(zsh-syntax-highlighting)
-# todo: only do on macos
-# plugins+=(careful_rm)
+plugins+=(autojump)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -144,6 +143,10 @@ fi
 if type bat > /dev/null; then
   alias cat="bat"
 fi
+
+
+alias yios="./.local-script/change-arch.sh set && yarn ios && ./.local-script/change-arch.sh reset"
+alias yand="yarn android"
 
 # TODO: execute this automatically when entering dotfile folder and git is not connected
 alias gssh='eval $(ssh-agent -s) && ssh-add ~/.ssh/gvdp_github'
