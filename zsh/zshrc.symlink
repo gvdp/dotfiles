@@ -3,6 +3,7 @@
 # Functions
 ######
 
+# could move to zshenv
 fpath=(
     $DOTFILES/zsh/functions
     $fpath
@@ -24,6 +25,7 @@ if [[ -d /opt/homebrew ]]; then
   export ZSH=/home/gvdp/.oh-my-zsh
 fi
 
+# could move to zshenv
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
