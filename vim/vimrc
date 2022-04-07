@@ -1,5 +1,7 @@
 syntax on
 set mouse=a
+set encoding=UTF-8
+set guifont=HackMono_Nerd_Font:h11
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
@@ -32,6 +34,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'mileszs/ack.vim'
   Plug 'airblade/vim-gitgutter'
+  Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
