@@ -36,7 +36,7 @@ cask "font-fira-code"
 cask "font-jetbrains-mono"
 cask "font-cascadia-mono"
 cask "font-3270-nerd-font"
-
+cask "font-noto-nerd-font"
 				# packages
 brew "bat"
 brew "cloc"
