@@ -9,6 +9,7 @@ function gprune() {
 }
 alias gmm="git fetch && git merge origin/$(git_main_branch) --no-edit && git push"
 alias gcc="gaa && git commit --no-edit && git push"
+alias gcd="gf && gco develop && gprune"
 
 function gfc() {
   gf
