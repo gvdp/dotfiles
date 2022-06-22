@@ -134,7 +134,8 @@ alias yand="yarn android"
 alias gal='alias | grep'
 alias tree='tree -d -L 3 --prune'
 
-alias ecli='node /Users/gvdp/code/ember/ember-project-cli/bin/index.js'
+# todo: make this env specific, only needed on BGR machine
+alias ember-project-cli='node ~/code/ember/ember-project-cli/bin/index.js'
 
 
 # TODO: execute this automatically when entering dotfile folder and git is not connected

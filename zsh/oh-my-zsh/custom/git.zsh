@@ -19,3 +19,10 @@ function gfc() {
 function gign() {
   echo $1 >> .gitignore
 }
+
+
+## appy git diff from boilerplate
+## git remote add boilerplate git@git.bagaar.be:shelf/front-end/ember/ember-project-boilerplate.git
+## git remote update
+## git diff boilerplate remotes/boilerplate/main --diff-filter=d | git apply
+
