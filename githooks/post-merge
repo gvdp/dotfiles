@@ -6,3 +6,6 @@ echo "rerunning linking"
 
 echo "resourcing zsh"
 source ~/.zshrc
+
+
+echo "post merge done"
