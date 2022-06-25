@@ -31,3 +31,4 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [brew bundle check] # todo: replace with brew bundle install maybe?
