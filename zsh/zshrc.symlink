@@ -157,6 +157,10 @@ alias of='vi $(fzf)'
 alias crep='cd $(fd -d 2 --type d . ~/code | fzf)'
 alias fcode='code $(fd -d 2 --type d . ~/code | fzf)'
 
+
+alias grbc='npx lint-staged --relative && git rebase --continue'
+
+
 # function for timing shell startup
 timezsh() {
   shell=${1-$SHELL}
