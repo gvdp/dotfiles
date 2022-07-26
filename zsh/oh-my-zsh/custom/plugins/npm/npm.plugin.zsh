@@ -25,7 +25,14 @@ alias yt='yarn test'
 alias yte='yarn test:ember'
 alias yl='yarn lint'
 alias ytw='yarn test:watch'
+alias yb='yarn build'
 alias tw='npm run test-watch-chrome' 
 alias cdep='gaa && gcmsg "Update dependencies" && git push'
 alias plock='npm i && gaa && gcmsg "package lock" && git push'
 alias replock='rm -rf node_modules && rm package-lock.json && npm i && gcam "Update package lock" && git push'
+
+
+
+# todo: make separate lerna plugin
+alias lb='npx lerna bootstrap'
+alias lr='npx lerna run'
