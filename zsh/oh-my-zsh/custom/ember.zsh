@@ -1,4 +1,4 @@
-alias egc="ember generate component"
+alias egc="ember generate component --with-component-class -ns"
 alias egcc="ember generate component-class"
 alias egat="ember generate acceptance-test"
 alias e="ember"
