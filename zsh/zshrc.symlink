@@ -172,6 +172,7 @@ timezsh() {
 # du -h -d 2 /media/gvdp/Schefke/ | sort -h -r | head -n 10
 # df -h
 
+eval "$(starship init zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

@@ -17,6 +17,7 @@
       create: true
       path: zsh/oh-my-zsh/custom/themes/gvdp.zsh-theme
     ~/.tmux.conf: tmux/conf
+    ~/.config/starship.toml: starship/starship.toml
     ~/.mackup.cfg: 
       force: true
       path: mackup/.mackup.cfg

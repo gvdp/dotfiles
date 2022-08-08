@@ -1,0 +1,66 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
+
+# format = "$all"
+
+format = """
+$username\
+$hostname\
+$localip\
+$directory\
+$nodejs\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$env_var\
+$custom\
+$sudo\
+$line_break\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
+
+# format = """
+# [┌───────────────────>](bold green)
+# [│](bold green)$directory$rust$package
+# [└─>](bold green) """
+
+
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+
+[directory]
+truncate_to_repo = false
+
+[character]
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+# [time]
+# disabled = false
+
+
+[fill]
+symbol = "-"
+style = "bold green"
+
+[git_branch]
+# style = "bg:cyan fg:green"
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+
+[shell]
+disabled = false
+
+[username]
+format = "[$user @]($style) "
+disabled = false
+show_always = true
