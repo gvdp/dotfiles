@@ -6,6 +6,7 @@
 # could move to zshenv
 fpath=(
     $DOTFILES/zsh/functions
+    $DOTFILES/zsh/oh-my-zsh/custom/autocomplete
     $fpath
 )
 
@@ -172,6 +173,13 @@ timezsh() {
 # du -h -d 2 /media/gvdp/Schefke/ | sort -h -r | head -n 10
 # df -h
 
+# setopt completealiases
+
+autoload -U compinit
+compinit
+echo "compinit loaded"
+
+compdef _commits gcmsg gcam
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

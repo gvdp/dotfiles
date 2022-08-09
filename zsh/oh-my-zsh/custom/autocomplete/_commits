@@ -1,0 +1,11 @@
+#compdef gcmsg
+
+echo "loading autocomplete"
+  local -a commands
+  commands=(
+    '\"chore('
+    '\"fix('
+  )
+
+
+    _describe 'command' commands

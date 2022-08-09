@@ -28,6 +28,11 @@
       create: true
       glob: true
       path: zsh/oh-my-zsh/custom/plugins/*
+    $ZSH/custom/autocomplete:
+      create: true
+      glob: true      
+      force: true
+      path: zsh/oh-my-zsh/custom/autocomplete/*
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
