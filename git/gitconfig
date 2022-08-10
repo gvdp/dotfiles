@@ -1,6 +1,8 @@
-[user]
-	name = Glenn Van De Putte
-	email = glenn.vandeputte@bagaar.be
+[include]
+    # A local gitconfig, outside of version control.
+    # If the file doesn't exist it is silently ignored
+    path = ~/.gitconfig-local
+
 [core]
 	autocrlf = input
 	excludesfile = /Users/gvdp/.globalgitignore
