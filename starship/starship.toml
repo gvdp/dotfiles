@@ -57,10 +57,10 @@ style = "bold green"
 [nodejs]
 format = "[$symbol($version )]($style)"
 
-[shell]
-disabled = false
+# [shell]
+# disabled = false
 
 [username]
-format = "[$user @]($style) "
+format = "[$user@]($style)"
 disabled = false
 show_always = true
