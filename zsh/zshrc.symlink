@@ -175,6 +175,9 @@ function lip() {
   ip addr | awk '/inet .* eth0/ {print $2}' | sed 's/\/20//'
 }
 
+alias lpath='echo $PATH | tr ":" "\n"' # list the PATH separated by new lines
+
+
 ###############
 # FZF
 ##############
