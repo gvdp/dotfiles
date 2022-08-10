@@ -1,6 +1,8 @@
 
 alias grd="gf && grb origin/develop"
+alias grm="gf && grb origin/main"
 alias grid="gf && grbi origin/develop"
+alias grim="gf && grbi origin/main"
 
 
 function gprune() {
