@@ -5,8 +5,8 @@
 
 
 export DOTFILES="$(dirname "$(dirname "$(readlink "${(%):-%N}")")")"
-export EDITOR='vim'
-export GIT_EDITOR='vim'
+export EDITOR='nvim'
+export GIT_EDITOR='nvim'
 export CACHEDIR="$HOME/.local/share"
 export VIM_TMP="$HOME/.vim-tmp"
 
