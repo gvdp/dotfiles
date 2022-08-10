@@ -72,8 +72,9 @@ plugins=(
 )
 
 plugins+=(zsh-syntax-highlighting)
-plugins+=(autojump)
 
+plugins+=(autojump)
+# disabled because python is needed plugins+=(careful_rm)
 
 source $ZSH/oh-my-zsh.sh
 
