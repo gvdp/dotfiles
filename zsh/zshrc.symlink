@@ -73,6 +73,8 @@ VI_MODE_SET_CURSOR=true
 #####
 # Plugins
 # ####
+#
+# Maybe do this without git submodules in dotbot? https://github.com/nicknisi/dotfiles/blob/main/zsh/zshrc.symlink#L109
 
 plugins=(
   vi-mode
@@ -85,6 +87,8 @@ plugins=(
 plugins+=(zsh-syntax-highlighting)
 
 plugins+=(autojump)
+
+
 # disabled because python is needed plugins+=(careful_rm)
 
 source $ZSH/oh-my-zsh.sh
