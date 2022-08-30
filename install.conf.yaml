@@ -17,8 +17,9 @@
       create: true
       path: zsh/oh-my-zsh/custom/themes/gvdp.zsh-theme
     ~/.tmux.conf: tmux/conf
-    ~/.gitconfig: git/gitconfig
     ~/.config/starship.toml: starship/starship.toml
+    ~/.gitconfig: git/gitconfig
+    ~/.globalgitignore: git/.globalgitignore
     ~/.mackup.cfg: 
       force: true
       path: mackup/.mackup.cfg
