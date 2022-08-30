@@ -967,8 +967,9 @@ font_size 10.0
 #: }}}
 
 #: Color scheme {{{
-# foreground #b4cded
-# background #0d1821
+
+foreground #b4cded
+background #0d1821
 
 #: The foreground and background colors.
 
@@ -1027,8 +1028,9 @@ font_size 10.0
 
 #: How much to dim text that has the DIM/FAINT attribute set. One
 #: means no dimming and zero means fully dimmed (i.e. invisible).
-# selection_foreground #eeeeee
-# selection_background #326273
+
+selection_foreground #eeeeee
+selection_background #326273
 
 #: The foreground and background colors for text selected with the
 #: mouse. Setting both of these to none will cause a "reverse video"
@@ -2166,9 +2168,3 @@ shell /bin/zsh
 #: }}}
 
 #: }}}
-
-
-# BEGIN_KITTY_THEME
-# Hybrid
-include current-theme.conf
-# END_KITTY_THEME

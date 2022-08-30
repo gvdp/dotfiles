@@ -24,6 +24,7 @@
       force: true
       path: mackup/.mackup.cfg
     ~/.config/kitty/kitty.conf: kitty/.config/kitty.conf
+    ~/.config/kitty/current-theme.conf: kitty/.config/current-theme.conf
     $ZSH/custom:
       create: true
       glob: true
