@@ -1,14 +1,14 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-add_newline = true
+add_newline = false
 
 # format = "$all"
 
 format = """
-$username\
+$character\
 $hostname\
 $localip\
 $directory\
-$nodejs\
+$nodejs
 $git_branch\
 $git_commit\
 $git_state\
@@ -22,8 +22,8 @@ $line_break\
 $battery\
 $time\
 $status\
-$shell\
-$character"""
+$shell
+"""
 
 # format = """
 # [┌───────────────────>](bold green)
@@ -40,19 +40,17 @@ style = "bold red"
 truncate_to_repo = false
 
 [character]
-success_symbol = "[➜](bold green) "
-error_symbol = "[✗](bold red) "
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
 
 # [time]
 # disabled = false
 
 
-[fill]
-symbol = "-"
-style = "bold green"
-
 [git_branch]
 # style = "bg:cyan fg:green"
+symbol = ""
+format = "[$symbol$branch(:$remote_branch)]($style) "
 
 [nodejs]
 format = "[$symbol($version )]($style)"
