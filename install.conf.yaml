@@ -23,6 +23,7 @@
     ~/.mackup.cfg: 
       force: true
       path: mackup/.mackup.cfg
+    ~/.config/kitty/kitty.conf: kitty/.config/kitty.conf
     $ZSH/custom:
       create: true
       glob: true
