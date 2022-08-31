@@ -7,7 +7,8 @@
 #: characters.
 
 # font_family      monospace
-font_family Menlo 
+# font_family mononoki Nerd Font Mono 
+font_family FiraCode Nerd Font Mono
 
 # bold_font        auto
 # italic_font      auto
@@ -26,7 +27,7 @@ font_family Menlo
 #:     bold_italic_font Operator Mono Medium Italic
 
 
-font_size 10.0
+font_size 11.0
 
 #: Font size (in pts)
 
@@ -967,9 +968,8 @@ font_size 10.0
 #: }}}
 
 #: Color scheme {{{
-
-foreground #b4cded
-background #0d1821
+# foreground #b4cded
+# background #0d1821
 
 #: The foreground and background colors.
 
@@ -1028,9 +1028,8 @@ background #0d1821
 
 #: How much to dim text that has the DIM/FAINT attribute set. One
 #: means no dimming and zero means fully dimmed (i.e. invisible).
-
-selection_foreground #eeeeee
-selection_background #326273
+# selection_foreground #eeeeee
+# selection_background #326273
 
 #: The foreground and background colors for text selected with the
 #: mouse. Setting both of these to none will cause a "reverse video"
@@ -2168,3 +2167,9 @@ shell /bin/zsh
 #: }}}
 
 #: }}}
+
+
+# BEGIN_KITTY_THEME
+# Hybrid
+include current-theme.conf
+# END_KITTY_THEME
