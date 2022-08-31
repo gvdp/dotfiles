@@ -2170,6 +2170,6 @@ shell /bin/zsh
 
 
 # BEGIN_KITTY_THEME
-# Hybrid
+# Highway
 include current-theme.conf
 # END_KITTY_THEME
