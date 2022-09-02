@@ -4,16 +4,16 @@ add_newline = false
 # format = "$all"
 
 format = """
-$character\
 $hostname\
 $localip\
 $directory\
-$nodejs
+$nodejs\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
+$git_user\
 $docker_context\
 $env_var\
 $custom\
@@ -22,7 +22,8 @@ $line_break\
 $battery\
 $time\
 $status\
-$shell
+$shell\
+$character\
 """
 
 # format = """
@@ -62,3 +63,9 @@ format = "[$symbol($version )]($style)"
 format = "[$user@]($style)"
 disabled = false
 show_always = true
+
+[custom.git_user]
+command="git config user.name"
+detect_folders = [".git"]
+format = "[(\\($output\\) )]($style)"
+style = "dimmed yellow"
