@@ -45,7 +45,7 @@ add_to_path /home/gvdp/.volta/bin
 #########
 # Zsh-options
 #########
-
+alias zopt="vim ~/.zshrc"
 
 ZSH_THEME="gvdp"
 ENABLE_CORRECTION="true"
