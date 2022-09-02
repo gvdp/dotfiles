@@ -82,7 +82,9 @@ plugins=(
   npm
   alias-tips
   bd
-)
+ git-open)
+
+
 
 plugins+=(zsh-syntax-highlighting)
 

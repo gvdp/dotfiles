@@ -1,0 +1,11 @@
+#! /bin/zsh
+
+echo "add plugin from url \"$1\" as \"$2\" "
+
+
+## todo: add validation that this is run in dot files folder
+
+git submodule add --force "$1" "zsh/oh-my-zsh/custom/plugins/$2" 
+omz plugin enable "$2"
+./run-dotbot
+omz reload

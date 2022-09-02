@@ -35,5 +35,5 @@
       path: zsh/oh-my-zsh/custom/plugins/*
 
 - shell:
-    - [git submodule update --init --recursive, Installing submodules]
-    - [brew bundle check] # todo: replace with brew bundle install maybe?
+   - [git submodule update --init --recursive, Installing submodules]
+      ## - [brew bundle check] # todo: replace with brew bundle install maybe?
