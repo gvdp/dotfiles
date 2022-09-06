@@ -41,6 +41,7 @@ add_to_path $ANDROID_HOME/platform-tools
 
 add_to_path /home/gvdp/.volta/bin
 
+add_to_path /usr/local/bin
 
 #########
 # Zsh-options

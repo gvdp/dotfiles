@@ -11,6 +11,10 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 " tab cycles between open tabs
 nnoremap <C-i> :tabnext<CR>
 
+
+nnoremap <leader>s :update<cr>
+
+
 " duplicate current file, could be made into shortcut:
 " :!cp % %:h/new-file.ts
 
