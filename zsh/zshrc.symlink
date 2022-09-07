@@ -203,6 +203,9 @@ timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
+gci() {
+	gh issue create --title "$1" 
+}
 
 # disk space functions for rpi
 # du -h -d 2 /media/gvdp/Schefke/ | sort -h -r | head -n 10
