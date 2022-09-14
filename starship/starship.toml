@@ -65,7 +65,7 @@ disabled = false
 show_always = true
 
 [custom.git_user]
-command="git config user.name"
+command="git config user.email"
 detect_folders = [".git"]
 format = "[(\\($output\\) )]($style)"
 style = "dimmed yellow"
