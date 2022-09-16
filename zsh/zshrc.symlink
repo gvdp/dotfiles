@@ -161,6 +161,7 @@ fi
 
 alias yios="./.local-script/change-arch.sh set && yarn ios && ./.local-script/change-arch.sh reset"
 alias yand="yarn android"
+alias ysc="cat package.json	| jq .scripts"
 
 alias gal='alias | grep'
 alias tree='tree -d -L 3 --prune'
