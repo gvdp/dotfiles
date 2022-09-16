@@ -197,7 +197,10 @@ alias fzp="fzf --preview 'cat {}'"
 alias of='vi $(fzf)'
 alias crep='cd $(fd -d 2 --type d . ~/code | fzf)'
 alias fcode='code $(fd -d 2 --type d . ~/code | fzf)'
-
+# todo: make sure when running this the command is kept in history so it can be repeated
+function yr() {
+ yarn $(cat package.json | jq .scripts | jq 'keys' | sed 's/[\",]//g' | sed '/[][]/d' | fzf)
+}
 
 alias grbc='npx lint-staged --relative && git rebase --continue'
 
