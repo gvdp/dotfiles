@@ -16,6 +16,7 @@ nnoremap <C-i> :tabnext<CR>
 
 
 nnoremap <leader>s :update<cr>
+nnoremap <leader>q :quit<cr>
 
 
 " duplicate current file, could be made into shortcut:
