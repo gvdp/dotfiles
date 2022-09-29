@@ -43,8 +43,14 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mileszs/ack.vim'
   Plug 'airblade/vim-gitgutter'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'tpope/vim-commentary'
 
 call plug#end()
+
+
+:command Reload source ~/.config/nvim/init.vim
+
+" nnoremap <D-/> gcc
 
 " ack.vim --- {{{
 
