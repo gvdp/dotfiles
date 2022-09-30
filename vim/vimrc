@@ -4,7 +4,7 @@ set encoding=UTF-8
 set guifont=Noto_Mono_Nerd_Font:h11
 
 set clipboard=unnamed
-
+set number relativenumber
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
