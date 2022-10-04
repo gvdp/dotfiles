@@ -46,6 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'ryanoasis/vim-devicons'
   Plug 'tpope/vim-commentary'
+  Plug 'mhinz/vim-startify'
 
 call plug#end()
 
