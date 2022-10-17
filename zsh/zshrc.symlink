@@ -201,7 +201,7 @@ alias fcode='code $(fd -d 2 --type d . ~/code | fzf)'
 function yr() {
  yarn $(cat package.json | jq .scripts | jq 'keys' | sed 's/[\",]//g' | sed '/[][]/d' | fzf)
 }
-
+# todo: only do the lint staged when there is some lint staged config
 alias grbc='npx lint-staged --relative && git rebase --continue'
 
 
