@@ -169,8 +169,9 @@ alias tree='tree -d -L 3 --prune'
 alias goss="git config user.name gvdp && git config user.email vdputteglenn@gmail.com"
 alias gbgr="git config user.name \"Glenn Van De Putte\" && git config user.email glenn.vandeputte@bagaar.be"
 
-alias gdelbr="git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done"
-
+function gdelbr() {
+  git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done
+}
 
 # todo: make this env specific, only needed on BGR machine
 alias ember-project-cli='node ~/code/ember/ember-project-cli/bin/index.js'
