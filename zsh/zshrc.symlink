@@ -151,6 +151,8 @@ alias vsh="vim ~/.zshrc"
 alias reload="omz reload"
 alias cf="cd $CODE_FOLDER"
 
+alias yadd="yarn add --dev --exact"
+
 if type batcat > /dev/null; then
   alias cat="batcat"
 fi
