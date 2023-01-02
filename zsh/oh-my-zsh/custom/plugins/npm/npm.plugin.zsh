@@ -19,9 +19,11 @@ function nt() {
 
 alias nr='npm run'
 alias ns='npm run start'
+alias y='yarn'
 alias ys='yarn start'
-alias ysm='ENABLE_MIRAGE=true MSW_ENABLED=true yarn start'
 alias yt='yarn test'
+alias ysm='ENABLE_MIRAGE=true MSW_ENABLED=true yarn start'
+alias ysl='API_HOST=http://localhost:8880/ yarn start'
 alias yte='yarn test:ember'
 alias yl='yarn lint'
 alias ytw='yarn test:watch'
