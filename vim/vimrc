@@ -6,7 +6,9 @@ set guifont=Noto_Mono_Nerd_Font:h11
 set clipboard=unnamed
 set number relativenumber
 
+
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
