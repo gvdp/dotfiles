@@ -65,9 +65,9 @@ setopt SHARE_HISTORY             # share history between all sessions.
 setopt HIST_IGNORE_ALL_DUPS      # delete old recorded entry if new entry is a duplicate.
 
 
-# dont autocorrect arguments, only commands
+# dont autocorrect 
 unsetopt correct_all  
-setopt correct
+unsetopt correct
 
 VI_MODE_SET_CURSOR=true
 
