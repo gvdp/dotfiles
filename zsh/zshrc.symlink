@@ -118,7 +118,7 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
-
+source $DOTFILES/check-status.sh 
 
 #######################
 # Aliases
@@ -130,6 +130,16 @@ if ls --color > /dev/null 2>&1; then # GNU `ls`
 else # macOS `ls`
     colorflag="-G"
 fi
+
+
+date () 
+{ 
+    if type -p gdate > /dev/null; then
+        gdate "$@";
+    else
+        date "$@";
+    fi
+}
 
 alias l="ls -lah ${colorflag}"
 alias la="ls -AF ${colorflag}"
