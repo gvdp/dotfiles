@@ -14,7 +14,8 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 " tab cycles between open tabs
-nnoremap <C-i> :tabnext<CR>
+nnoremap <C-tab> :tabnext<CR>
+nnoremap <C-S-tab> :tabp<CR>
 
 
 nnoremap <leader>s :update<cr>
@@ -49,6 +50,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ryanoasis/vim-devicons'
   Plug 'tpope/vim-commentary'
   Plug 'mhinz/vim-startify'
+  Plug 'ThePrimeagen/vim-be-good'
+  Plug 'rebelot/kanagawa.nvim'
 
 call plug#end()
 
@@ -87,3 +90,9 @@ nnoremap <silent> ]q :cnext<CR>
 set tabstop=4
 
 " TABS
+"
+
+
+" Theme
+"
+colorscheme kanagawa
