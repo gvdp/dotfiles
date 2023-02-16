@@ -208,8 +208,16 @@ function yr() {
  yarn $(cat package.json | jq .scripts | jq 'keys' | sed 's/[\",]//g' | sed '/[][]/d' | fzf)
 }
 # todo: only do the lint staged when there is some lint staged config
-alias grbc='npx lint-staged --relative && git rebase --continue'
-
+unalias grbc
+function grbc() {
+		lintConfig=$(cat package.json | jq '."lint-staged"')
+		echo $lintConfig
+		if [ -z "$lintConfig" ]
+		then
+		  npx lint-staged --relative
+		fi		
+		git rebase --continue
+}
 
 # function for timing shell startup
 timezsh() {
