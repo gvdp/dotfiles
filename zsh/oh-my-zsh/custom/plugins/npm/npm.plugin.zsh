@@ -17,17 +17,21 @@ function nt() {
   fi
 }
 
-alias nr='npm run'
-alias ns='npm run start'
-alias y='yarn'
-alias ys='yarn start'
-alias yt='yarn test'
-alias ysm='ENABLE_MIRAGE=true MSW_ENABLED=true VITE_ENABLE_MSW=true yarn start'
-alias ysl='API_HOST=http://localhost:8880/ yarn start'
-alias yte='yarn test:ember'
-alias yl='yarn lint'
-alias ytw='yarn test:watch'
-alias yb='yarn build'
+function yir() {
+  [ -e yarn.lock ] && yarn ${1-install}
+  [ -e package-lock.json ] && npm run ${1-install}
+}
+
+
+alias y='yir'
+alias ys='yir start'
+alias yt='yir test'
+alias ysm='ENABLE_MIRAGE=true MSW_ENABLED=true VITE_ENABLE_MSW=true yir start'
+alias ysl='API_HOST=http://localhost:8880/ yir start'
+alias yte='yir test:ember'
+alias yl='yir lint'
+alias ytw='yir test:watch'
+alias yb='yir build'
 alias tw='npm run test-watch-chrome' 
 alias cdep='gaa && gcmsg "Update dependencies" && git push'
 alias plock='npm i && gaa && gcmsg "package lock" && git push'
