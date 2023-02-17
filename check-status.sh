@@ -10,8 +10,8 @@ interval=3600
 
 if [[ $elapsed -gt $interval ]] then 
 
-echo $(date '+%s') > repo-status
-echo $(date) >> repo-status
+echo $(date '+%s') > $DOTFILES/repo-status
+echo $(date) >> $DOTFILES/repo-status
 
 uncommitted=$(cd $DOTFILES && git status --short | grep -c "M\|A\|D\|R\|C")
 # uncommitted=0
@@ -20,7 +20,7 @@ echo $uncommitted
 
 if [[ $uncommitted -gt 0 ]] then
 		echo "there are uncommitted changes in the dotfiles repo"
-		echo "needs-commit" >> repo-status
+		echo "needs-commit" >> $DOTFILES/repo-status
 else
 		notPulledChanges=$(cd $DOTFILES && git status | grep -c "is behind")
 		
