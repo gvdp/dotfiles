@@ -90,6 +90,7 @@ plugins+=(zsh-syntax-highlighting)
 
 plugins+=(autojump)
 plugins+=(git-trim)
+plugins+=(fzf-tab)
 
 
 # disabled because python is needed plugins+=(careful_rm)

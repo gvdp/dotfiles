@@ -14,3 +14,6 @@
 [submodule "zsh/oh-my-zsh/custom/plugins/git-trim"]
 	path = zsh/oh-my-zsh/custom/plugins/git-trim
 	url = https://github.com/jasonmccreary/git-trim.git
+[submodule "zsh/oh-my-zsh/custom/plugins/fzf-tab"]
+	path = zsh/oh-my-zsh/custom/plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab
