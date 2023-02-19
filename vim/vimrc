@@ -24,6 +24,7 @@ nnoremap <leader>q :quit<cr>
 
 nnoremap <leader>f :! npx prettier --write %<cr>
 
+nnoremap ; :
 
 " duplicate current file, could be made into shortcut:
 " :!cp % %:h/new-file.ts
