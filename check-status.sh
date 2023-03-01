@@ -13,7 +13,7 @@ if [[ $elapsed -gt $interval ]] then
 
 echo $(date '+%s') > $DOTFILES/repo-status
 echo $(date) >> $DOTFILES/repo-status
-
+git fetch
 uncommitted=$(cd $DOTFILES && git status --short | grep -c "M\|A\|D\|R\|C")
 # uncommitted=0
 
