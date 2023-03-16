@@ -21,7 +21,6 @@ function y() {
   [ -e yarn.lock ] && yarn ${1-install} && return
   [ -e package-lock.json ] && if [ -z "$1" ]; then npm install; else npm run $1; fi && return
   [ -e pnpm-lock.yaml ] && if [ -z "$1" ]; then pnpm install; else pnpm $1; fi && return
-  yarn ${1-install} 
 }
 
 
