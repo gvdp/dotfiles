@@ -14,6 +14,8 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 
+let NERDTreeMouseMode=2
+
 " tab cycles between open tabs
 nnoremap <C-tab> :tabnext<CR>
 nnoremap <C-S-tab> :tabp<CR>
