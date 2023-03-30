@@ -253,3 +253,5 @@ eval "$(starship init zsh)"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+source /Users/gvdp/.docker/init-zsh.sh || true # Added by Docker Desktop
