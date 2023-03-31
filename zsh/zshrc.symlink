@@ -143,6 +143,8 @@ date ()
     fi
 }
 
+
+
 alias l="ls -lah ${colorflag}"
 alias la="ls -AF ${colorflag}"
 alias ll="ls -lFh ${colorflag}"
@@ -241,6 +243,10 @@ timezsh() {
 
 gci() {
 	gh issue create --title "$1" 
+}
+
+ptr() {
+    make test-run-single test=$1
 }
 
 # disk space functions for rpi
