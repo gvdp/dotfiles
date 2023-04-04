@@ -57,8 +57,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ThePrimeagen/vim-be-good'
   Plug 'rebelot/kanagawa.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 
 call plug#end()
+
+
+
+:lua require("mason").setup()
 
 
 :command Reload source ~/.config/nvim/init.vim
