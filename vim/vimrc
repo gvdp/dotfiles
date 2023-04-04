@@ -56,6 +56,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mhinz/vim-startify'
   Plug 'ThePrimeagen/vim-be-good'
   Plug 'rebelot/kanagawa.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
 
@@ -89,6 +90,14 @@ nnoremap <Leader>ft :Ack!<Space>
 " Navigate quickfix list with ease
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
+
+" code folding
+"
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable                     " Disable folding at startup.
+
 
 " Indentation
 set tabstop=4
