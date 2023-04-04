@@ -58,6 +58,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'rebelot/kanagawa.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
+  Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
@@ -65,6 +66,7 @@ call plug#end()
 
 :lua require("mason").setup()
 
+:lua require'lspconfig'.tsserver.setup{}
 
 :command Reload source ~/.config/nvim/init.vim
 
