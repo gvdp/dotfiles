@@ -261,3 +261,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 [[ -f /Users/gvdp/.docker/init-zsh.sh ]] && source /Users/gvdp/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+# pnpm
+export PNPM_HOME="/Users/gvdp/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
