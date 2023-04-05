@@ -249,6 +249,12 @@ ptr() {
     make test-run-single test=$1
 }
 
+ptrc() {
+    make test-run-single-clean test=$1
+}
+
+
+
 # disk space functions for rpi
 # du -h -d 2 /media/gvdp/Schefke/ | sort -h -r | head -n 10
 # df -h
