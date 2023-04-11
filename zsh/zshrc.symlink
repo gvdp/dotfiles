@@ -251,10 +251,14 @@ timezsh() {
 gci() {
 	gh issue create --title "$1" 
 }
-
+# this will run the test again if the make script exists but the test failed
 ptr() {
-    make test-run-single test=$1
+    make test-run-single test=$1 || docker-compose run debug sh -c "./vendor/bin/phpunit --filter $1 --verbose --stop-on-failure"
 }
+pbr() {
+    make test-single-feature feature=$1 || docker-compose run debug sh -c "./vendor/bin/behat $1"
+}
+
 
 ptrc() {
     make test-run-single-clean test=$1
