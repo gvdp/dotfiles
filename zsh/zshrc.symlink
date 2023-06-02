@@ -144,6 +144,7 @@ date ()
 }
 
 
+alias lg="lazygit"
 
 alias l="ls -lah ${colorflag}"
 alias la="ls -AF ${colorflag}"
