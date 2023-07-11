@@ -176,6 +176,8 @@ alias cf="cd $CODE_FOLDER"
 
 alias ghi="gh issue create --title"
 
+alias note="vim ~/Documents/Notes/Inbox.md"
+alias notes="vim ~/Documents/Notes"
 # todo: move to npm plugin and make it dependent on lockfile which manager to use
 alias yadd="yarn add --dev --exact"
 
