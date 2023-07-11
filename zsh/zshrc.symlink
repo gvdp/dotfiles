@@ -175,7 +175,6 @@ alias reload="omz reload"
 alias cf="cd $CODE_FOLDER"
 
 alias ghi="gh issue create --title"
-
 alias note="vim ~/Documents/Notes/Inbox.md"
 alias notes="vim ~/Documents/Notes"
 # todo: move to npm plugin and make it dependent on lockfile which manager to use
@@ -257,6 +256,9 @@ gci() {
 }
 # this will run the test again if the make script exists but the test failed
 ptr() {
+    make test-run-single test=$1 || docker-compose run php sh -c "./vendor/bin/phpunit --filter $1 --verbose --stop-on-failure"
+}
+ptrd() {
     make test-run-single test=$1 || docker-compose run debug sh -c "./vendor/bin/phpunit --filter $1 --verbose --stop-on-failure"
 }
 pbr() {
