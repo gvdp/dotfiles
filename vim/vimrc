@@ -34,6 +34,7 @@ nmap <C-S-tab> :bprevious<CR>
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
 nmap <leader>bq :bp <BAR> bd #<CR>
+
 nnoremap <leader>s :update<cr>
 nnoremap <leader>q :quit<cr>
 nnoremap <leader>r :Reload<cr>
@@ -71,6 +72,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'rebelot/kanagawa.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
   Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
+  Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
@@ -90,9 +92,12 @@ set hidden
 
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
-:lua require("mason").setup()
 
-:lua require'lspconfig'.tsserver.setup{}
+
+:lua require("mason").setup()
+:lua require("mason-lspconfig").setup()
+
+:lua require("lspconfig").tsserver.setup{}
 
 :command Reload source ~/.config/nvim/init.vim
 
@@ -141,4 +146,7 @@ set tabstop=4
 
 " Theme
 "
-colorscheme kanagawa
+"
+"
+luafile $DOTFILES/vim/init.lua
+
