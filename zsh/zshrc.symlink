@@ -174,6 +174,8 @@ alias vsh="vim ~/.zshrc"
 alias reload="omz reload"
 alias cf="cd $CODE_FOLDER"
 
+alias llog="tail -f -n 100 storage/logs/laravel.log | bat --paging=never -l log"
+
 alias ghi="gh issue create --title"
 alias note="vim ~/Documents/Notes/Inbox.md"
 alias notes="vim ~/Documents/Notes"
@@ -271,7 +273,11 @@ ptrc() {
     make test-run-single-clean test=$1
 }
 
-
+# better for logs maybe, not sure of the rest
+#
+# preview command to choose other one
+# export BAT_THEME=$(bat --list-themes | fzf --preview="bat --theme={} --color=always storage/logs/laravel.log")
+export BAT_THEME=ansi
 
 # disk space functions for rpi
 # du -h -d 2 /media/gvdp/Schefke/ | sort -h -r | head -n 10
