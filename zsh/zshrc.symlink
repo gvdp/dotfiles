@@ -259,10 +259,10 @@ gci() {
 }
 # this will run the test again if the make script exists but the test failed
 ptr() {
-    make test-run-single test=$1 || docker-compose run php sh -c "./vendor/bin/phpunit --filter $1 --verbose --stop-on-failure"
+    make test-run-single test=$1 || docker-compose run php sh -c "./vendor/bin/phpunit --filter $1 --stop-on-failure"
 }
 ptrd() {
-    make test-run-single test=$1 || docker-compose run debug sh -c "./vendor/bin/phpunit --filter $1 --verbose --stop-on-failure"
+    make test-run-single test=$1 || docker-compose run debug sh -c "./vendor/bin/phpunit --filter $1 --stop-on-failure"
 }
 pbr() {
     make test-single-feature feature=$1 || docker-compose run debug sh -c "./vendor/bin/behat $1"
