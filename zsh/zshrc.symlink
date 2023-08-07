@@ -27,7 +27,9 @@ fi
 
 # could move to zshenv
 export VOLTA_HOME="$HOME/.volta"
+export VOLTA_FEATURE_PNPM=1
 export PATH="$VOLTA_HOME/bin:$PATH"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export CODE_FOLDER="~/code"
