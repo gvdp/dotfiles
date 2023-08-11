@@ -10,8 +10,8 @@
     ~/.zprofile: 
       path: zsh/zprofile.symlink
       force: true
-    ~/.config/nvim/init.vim: 
-      path: vim/vimrc
+    ~/.config/nvim: 
+      path: vim/lazyvim
       create: true
     $ZSH/custom/themes/gvdp.zsh-theme:
       create: true
