@@ -169,7 +169,7 @@ alias k="kubectl"
 alias ylhu="yarn lint:hbs --update-todo --clean-todo && yarn lint:hbs --compact-todo"  
 alias ylhf="yarn ember-template-lint --fix " 
 alias ylh="yarn lint:hbs" 
-
+alias yf="y format"
 alias dot="cd $DOTFILES"
 alias vdot="vim $DOTFILES"
 alias vsh="vim ~/.zshrc"
