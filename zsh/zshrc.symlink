@@ -148,16 +148,20 @@ date ()
 
 alias lg="lazygit"
 
-alias l="ls -lah ${colorflag}"
-alias la="ls -AF ${colorflag}"
-# alias ll="ls -lFh ${colorflag}"
-alias lld="ls -l | grep ^d"
+# alias l="ls -lah ${colorflag}"
+# alias la="ls -AF ${colorflag}"
+# alias lld="ls -l | grep ^d"
 
-unalias ll
-function ll {
-  cd "$(llama "$@:." --icons)"
-}
+# unalias ll
+# function ll {
+  # cd "$(llama "$@:." --icons)"
+# }
+alias ls='lsd'
 
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 
 
 # Helpers
