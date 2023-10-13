@@ -270,6 +270,18 @@ alias pri="pr composer install"
 alias prr="pr php artisan migrate:fresh --seed"
 alias prm="pr php artisan migrate"
 
+ptt() {
+  docker-compose run php sh -c "./vendor/bin/phpunit"
+}
+alias pp="docker-compose run php sh -c \"./vendor/bin/pest"\"
+ppf() {
+# todo: autocomplete with possible tests?
+  docker-compose run php sh -c "./vendor/bin/pest --filter $1"
+}
+
+alias pl="make lint-fix && make phpstan"
+
+
 # this will run the test again if the make script exists but the test failed
 ptr() {
     make test-run-single test=$1 || docker-compose run php sh -c "./vendor/bin/phpunit --filter $1 --stop-on-failure"
