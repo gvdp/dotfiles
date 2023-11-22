@@ -1,4 +1,3 @@
-
 ######
 # Functions
 ######
@@ -267,13 +266,15 @@ gci() {
 
 alias pr="docker-compose run php"
 alias pri="pr composer install"
+alias pra="pr php artisan"
 alias prr="pr php artisan migrate:fresh --seed"
 alias prm="pr php artisan migrate"
+alias pds="pr php artisan db:seed"
 
 ptt() {
   docker-compose run php sh -c "./vendor/bin/phpunit"
 }
-alias pp="docker-compose run php sh -c \"./vendor/bin/pest"\"
+alias pp="docker-compose run php sh -c \"php -d memory_limit=-1 ./vendor/bin/pest\""
 ppf() {
 # todo: autocomplete with possible tests?
   docker-compose run php sh -c "./vendor/bin/pest --filter $1"
