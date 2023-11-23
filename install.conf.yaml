@@ -24,6 +24,7 @@
       force: true
       path: mackup/.mackup.cfg
     ~/.config/kitty/kitty.conf: kitty/.config/kitty.conf
+    ~/.config/kitty/ssh.conf: kitty/.config/ssh.conf
     ~/.config/kitty/kitty.app.icns: kitty/.config/kitty.app.icns
     ~/.config/kitty/current-theme.conf: kitty/.config/current-theme.conf
     $ZSH/custom:
@@ -35,5 +36,3 @@
       glob: true
       path: zsh/oh-my-zsh/custom/plugins/*
 
-- shell:
-    - [git submodule update --init --recursive, Installing submodules]
