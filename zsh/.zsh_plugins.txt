@@ -1,0 +1,5 @@
+djui/alias-tips
+zsh-users/zsh-syntax-highlighting
+
+# not entirely sure I still like this one, could be a different autocomplete
+Aloxaf/fzf-tab

@@ -2,14 +2,18 @@
 # Functions
 ######
 
+
+if [ -z "$ZDOTDIR" ]; then
+    export ZDOTDIR="$DOTFILES/zsh"
+fi
 # could move to zshenv
 fpath=(
-    $DOTFILES/zsh/functions
+    $ZDOTDIR/functions
     $fpath
 )
 
-if [[ -d $DOTFILES/zsh/functions ]]; then
-    for func in $DOTFILES/zsh/functions/*(:t); autoload -U $func
+if [[ -d $ZDOTDIR/functions ]]; then
+    for func in $ZDOTDIR/functions/*(:t); autoload -U $func
 fi
 
 ###############
@@ -18,11 +22,8 @@ fi
 
 
 # Path to your oh-my-zsh installation.
-if [[ -d /opt/homebrew ]]; then
-  export ZSH=/Users/gvdp/.oh-my-zsh
-  else
-  export ZSH=/home/gvdp/.oh-my-zsh
-fi
+export ZSH=~/.oh-my-zsh
+
 
 # could move to zshenv
 export VOLTA_HOME="$HOME/.volta"
@@ -50,7 +51,7 @@ add_to_path /usr/local/bin
 #########
 alias zopt="vim ~/.zshrc"
 
-ZSH_THEME="gvdp"
+# ZSH_THEME="gvdp"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
@@ -64,19 +65,19 @@ RIPGREP_CONFIG_PATH="$DOTFILES/ripgrep/ripgreprc"
 #
 # Maybe do this without git submodules in dotbot? https://github.com/nicknisi/dotfiles/blob/main/zsh/zshrc.symlink#L109
 
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+antidote load
+
 plugins=(
   vi-mode
   git
   npm
-  alias-tips
-  bd
 )
 
-plugins+=(zsh-syntax-highlighting)
-
-plugins+=(autojump)
-plugins+=(git-trim)
-plugins+=(fzf-tab)
+# plugins+=(zsh-syntax-highlighting)
+# plugins+=(autojump)
+# plugins+=(git-trim)
+# plugins+=(fzf-tab)
 
 
 # disabled because python is needed plugins+=(careful_rm)
@@ -122,7 +123,14 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
-source $DOTFILES/check-status.sh 
+
+# If a ~/.zshrc.local exists, source it
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+if [ "$CHECK_DOTFILE_STATUS" = "true" ]; then
+    status_file="$ZDOTDIR/check-status.sh"
+    source "$status_file"
+fi
 
 #######################
 # Aliases
@@ -156,12 +164,20 @@ alias lg="lazygit"
 # function ll {
   # cd "$(llama "$@:." --icons)"
 # }
-alias ls='lsd'
+#
+# 
+
+if command -v lsd > /dev/null 2>&1; then
+    # Set the alias if the program is available
+  alias ls='lsd'
+fi
 
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
+
+alias homeserver="kitten ssh 192.168.0.10"
 
 
 # Helpers
@@ -310,7 +326,7 @@ export BAT_THEME=ansi
 # df -h
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -319,8 +335,9 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 [[ -f /Users/gvdp/.docker/init-zsh.sh ]] && source /Users/gvdp/.docker/init-zsh.sh || true # Added by Docker Desktop
 
 
+if command -v rbenv > /dev/null 2>&1; then
 eval "$(rbenv init - zsh)"
-
+fi
 # pnpm
 export PNPM_HOME="/Users/gvdp/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
