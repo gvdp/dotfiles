@@ -70,6 +70,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ryanoasis/vim-devicons'
   Plug 'tpope/vim-commentary'
   Plug 'mhinz/vim-startify'
+  Plug 'github/copilot'
   Plug 'ThePrimeagen/vim-be-good'
   Plug 'rebelot/kanagawa.nvim'
   Plug 'nvim-treesitter/nvim-treesitter'
