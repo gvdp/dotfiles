@@ -74,13 +74,8 @@ plugins=(
   npm
 )
 
-# plugins+=(zsh-syntax-highlighting)
-# plugins+=(autojump)
-# plugins+=(git-trim)
-# plugins+=(fzf-tab)
 
 
-# disabled because python is needed plugins+=(careful_rm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,6 +83,7 @@ source $ZSH/oh-my-zsh.sh
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+# disabled because python is needed plugins+=(careful_rm)
 setopt EXTENDED_HISTORY          # write the history file in the ":start:elapsed;command" format.
 setopt HIST_REDUCE_BLANKS        # remove superfluous blanks before recording entry.
 setopt SHARE_HISTORY             # share history between all sessions.
