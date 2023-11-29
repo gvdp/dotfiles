@@ -160,12 +160,9 @@ alias lg="lazygit"
 # alias la="ls -AF ${colorflag}"
 # alias lld="ls -l | grep ^d"
 
-# unalias ll
-# function ll {
-  # cd "$(llama "$@:." --icons)"
-# }
-#
-# 
+function lk {
+  cd "$(walk "$@")"
+}
 
 if command -v lsd > /dev/null 2>&1; then
     # Set the alias if the program is available
