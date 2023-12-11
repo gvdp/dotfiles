@@ -189,6 +189,11 @@ alias vsh="vim ~/.zshrc"
 alias reload="omz reload"
 alias cf="cd $CODE_FOLDER"
 
+alias dps="docker ps"
+alias d="docker"
+alias dc="docker-compose"
+
+
 alias llog="tail -f -n 100 storage/logs/laravel.log | bat --paging=never -l log"
 
 alias ghi="gh issue create --title"
@@ -274,6 +279,7 @@ gci() {
 }
 
 alias pr="docker-compose run php"
+alias pft="pr composer test"
 alias pri="pr composer install"
 alias pra="pr php artisan"
 alias prr="pr php artisan migrate:fresh --seed"
