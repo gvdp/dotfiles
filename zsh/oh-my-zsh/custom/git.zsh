@@ -14,6 +14,7 @@ function gprune() {
 alias gmm="git fetch && git merge origin/$(git_main_branch) --no-edit && git push"
 alias gcc="gaa && git commit --no-edit && git push"
 
+# todo: do composer install here if its a laravel project
 alias gcd="gf && gco develop && gl && gprune && y"
 alias gcm="gf && gco main && gl && gprune && y"
 
