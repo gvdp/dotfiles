@@ -192,7 +192,9 @@ alias cf="cd $CODE_FOLDER"
 alias dps="docker ps"
 alias d="docker"
 alias dc="docker-compose"
+alias dka='docker kill $(docker ps -q)'
 
+alias mu="make up"
 
 alias llog="tail -f -n 100 storage/logs/laravel.log | bat --paging=never -l log"
 
