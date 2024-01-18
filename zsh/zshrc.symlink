@@ -65,9 +65,6 @@ RIPGREP_CONFIG_PATH="$DOTFILES/ripgrep/ripgreprc"
 #
 # Maybe do this without git submodules in dotbot? https://github.com/nicknisi/dotfiles/blob/main/zsh/zshrc.symlink#L109
 
-source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-antidote load
-
 plugins=(
   vi-mode
   git
@@ -78,6 +75,9 @@ plugins=(
 
 
 source $ZSH/oh-my-zsh.sh
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+antidote load
+
 
 # history
 HISTFILE=~/.zsh_history
