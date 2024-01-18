@@ -287,10 +287,11 @@ alias pra="pr php artisan"
 alias prr="pr php artisan migrate:fresh --seed"
 alias prm="pr php artisan migrate"
 alias pds="pr php artisan db:seed"
+alias ptt="pr composer test"
 
-ptt() {
-  docker-compose run php sh -c "./vendor/bin/phpunit"
-}
+# ptt() {
+#   docker-compose run php sh -c "./vendor/bin/phpunit"
+# }
 alias pp="docker-compose run php sh -c \"php -d memory_limit=-1 ./vendor/bin/pest\""
 ppf() {
 # todo: autocomplete with possible tests?
