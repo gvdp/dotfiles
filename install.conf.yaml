@@ -27,6 +27,9 @@
     ~/.config/kitty/ssh.conf: kitty/.config/ssh.conf
     ~/.config/kitty/kitty.app.icns: kitty/.config/kitty.app.icns
     ~/.config/kitty/current-theme.conf: kitty/.config/current-theme.conf
+    ~/.config/wezterm:
+      create: true
+      path: wezterm
     $ZSH/custom:
       create: true
       glob: true
