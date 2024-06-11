@@ -2,18 +2,20 @@
 # Functions
 ######
 
+echo "sourcing zshrc"
 
-if [ -z "$ZDOTDIR" ]; then
-    export ZDOTDIR="$DOTFILES/zsh"
+if [ -z "$ZDOTFILES" ]; then
+    export ZDOTFILES="$DOTFILES/zsh"
 fi
+
 # could move to zshenv
 fpath=(
-    $ZDOTDIR/functions
+    $ZDOTFILES/functions
     $fpath
 )
 
-if [[ -d $ZDOTDIR/functions ]]; then
-    for func in $ZDOTDIR/functions/*(:t); autoload -U $func
+if [[ -d $ZDOTFILES/functions ]]; then
+    for func in $ZDOTFILES/functions/*(:t); autoload -U $func
 fi
 
 ###############
@@ -75,7 +77,7 @@ plugins=(
 
 
 source $ZSH/oh-my-zsh.sh
-source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+source ${ZDOTFILES:-~}/.antidote/antidote.zsh
 antidote load
 
 
@@ -124,7 +126,7 @@ export LESS_TERMCAP_mh=$(tput dim)
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 if [ "$CHECK_DOTFILE_STATUS" = "true" ]; then
-    status_file="$ZDOTDIR/check-status.sh"
+    status_file="$ZDOTFILES/check-status.sh"
     source "$status_file"
 fi
 
