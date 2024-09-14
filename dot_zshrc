@@ -2,7 +2,6 @@
 # Functions
 ######
 
-echo "sourcing zshrc"
 
 if [ -z "$ZDOTFILES" ]; then
     export ZDOTFILES="$DOTFILES/zsh"
