@@ -1,0 +1,348 @@
+######
+# Functions
+######
+
+echo "sourcing zshrc"
+
+if [ -z "$ZDOTFILES" ]; then
+    export ZDOTFILES="$DOTFILES/zsh"
+fi
+
+# could move to zshenv
+fpath=(
+    $ZDOTFILES/functions
+    $fpath
+)
+
+if [[ -d $ZDOTFILES/functions ]]; then
+    for func in $ZDOTFILES/functions/*(:t); autoload -U $func
+fi
+
+###############
+# PATH
+###############
+
+
+# Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+
+
+# could move to zshenv
+export VOLTA_HOME="$HOME/.volta"
+export VOLTA_FEATURE_PNPM=1
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+export CODE_FOLDER="~/code"
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+add_to_path $ANDROID_HOME/emulator
+add_to_path $ANDROID_HOME/emulator
+add_to_path $ANDROID_HOME/tools
+add_to_path $ANDROID_HOME/cmdline-tools/latest/bin
+add_to_path $ANDROID_HOME/tools/bin
+add_to_path $ANDROID_HOME/platform-tools
+
+add_to_path /home/gvdp/.volta/bin
+
+add_to_path /usr/local/bin
+
+#########
+# Zsh-options
+#########
+alias zopt="vim ~/.zshrc"
+
+# ZSH_THEME="gvdp"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+HIST_STAMPS="mm/dd/yyyy"
+
+RIPGREP_CONFIG_PATH="$DOTFILES/ripgrep/ripgreprc"
+
+
+#####
+# Plugins
+# ####
+#
+# Maybe do this without git submodules in dotbot? https://github.com/nicknisi/dotfiles/blob/main/zsh/zshrc.symlink#L109
+
+plugins=(
+  vi-mode
+  git
+  npm
+)
+
+
+
+
+source $ZSH/oh-my-zsh.sh
+source ${ZDOTFILES:-~}/.antidote/antidote.zsh
+antidote load ${ZDOTFILES:-$HOME}/.zsh_plugins.txt
+
+
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+# disabled because python is needed plugins+=(careful_rm)
+setopt EXTENDED_HISTORY          # write the history file in the ":start:elapsed;command" format.
+setopt HIST_REDUCE_BLANKS        # remove superfluous blanks before recording entry.
+setopt SHARE_HISTORY             # share history between all sessions.
+setopt HIST_IGNORE_ALL_DUPS      # delete old recorded entry if new entry is a duplicate.
+
+
+# dont autocorrect 
+unsetopt correct_all  
+unsetopt correct
+
+VI_MODE_SET_CURSOR=true
+
+
+
+# User configuration
+
+# If a local zshrc exists, source it
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# use nvim, but don't make me think about it
+[[ -n "$(command -v nvim)" ]] && alias vim="nvim"
+
+
+# add color to man pages
+export MANROFFOPT='-c'
+export LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
+export LESS_TERMCAP_md=$(tput bold; tput setaf 6)
+export LESS_TERMCAP_me=$(tput sgr0)
+export LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4)
+export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7)
+export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+export LESS_TERMCAP_mr=$(tput rev)
+export LESS_TERMCAP_mh=$(tput dim)
+
+
+# If a ~/.zshrc.local exists, source it
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+if [ "$CHECK_DOTFILE_STATUS" = "true" ]; then
+    status_file="$ZDOTFILES/check-status.sh"
+    source "$status_file"
+fi
+
+#######################
+# Aliases
+#######################
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+    colorflag="--color"
+else # macOS `ls`
+    colorflag="-G"
+fi
+
+
+date () 
+{ 
+    if type -p gdate > /dev/null; then
+        gdate "$@";
+    else
+        date "$@";
+    fi
+}
+
+
+alias lg="lazygit"
+
+# alias l="ls -lah ${colorflag}"
+# alias la="ls -AF ${colorflag}"
+# alias lld="ls -l | grep ^d"
+
+function lk {
+  cd "$(walk "$@")"
+}
+
+if command -v lsd > /dev/null 2>&1; then
+    # Set the alias if the program is available
+  alias ls='lsd'
+fi
+
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+alias homeserver="kitten ssh 192.168.0.10"
+
+
+# Helpers
+alias grep='grep --color=auto'
+alias df='df -h' # disk free, in Gigabytes, not bytes
+alias du='du -h -c' # calculate disk usage for a folder
+alias k="kubectl"
+
+alias ylhu="yarn lint:hbs --update-todo --clean-todo && yarn lint:hbs --compact-todo"  
+alias ylhf="yarn ember-template-lint --fix " 
+alias ylh="yarn lint:hbs" 
+alias yf="y format"
+alias dot="cd $DOTFILES"
+alias vdot="vim $DOTFILES"
+alias vsh="vim ~/.zshrc"
+alias reload="omz reload"
+alias cf="cd $CODE_FOLDER"
+
+alias dps="docker ps"
+alias d="docker"
+alias dc="docker-compose"
+alias dka='docker kill $(docker ps -q)'
+
+alias mu="make up"
+
+alias llog="tail -f -n 100 storage/logs/laravel.log | bat --paging=never -l log"
+
+alias ghi="gh issue create --title"
+alias note="vim ~/Documents/Notes/Inbox.md"
+alias notes="vim ~/Documents/Notes"
+# todo: move to npm plugin and make it dependent on lockfile which manager to use
+alias yadd="yarn add --dev --exact"
+
+if type batcat > /dev/null; then
+  alias cat="batcat"
+fi
+
+if type bat > /dev/null; then
+  alias cat="bat"
+fi
+
+
+alias yios="./.local-script/change-arch.sh set && yarn ios && ./.local-script/change-arch.sh reset"
+alias yand="yarn android"
+alias ysc="cat package.json	| jq .scripts"
+alias gho="gh repo view --web"
+
+alias gal='alias | grep'
+alias tree='tree -d -L 3 --prune'
+
+alias goss="git config user.name gvdp && git config user.email vdputteglenn@gmail.com"
+alias gbgr="git config user.name \"Glenn Van De Putte\" && git config user.email glenn.vandeputte@bagaar.be"
+alias gc=". $DOTFILES/gum/commit.sh"
+function gdelbr() {
+  git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done
+}
+
+# todo: make this env specific, only needed on BGR machine
+alias ember-project-cli='node ~/code/ember/ember-project-cli/bin/index.js'
+
+
+# TODO: execute this automatically when entering dotfile folder and git is not connected
+alias gssh='eval $(ssh-agent -s) && ssh-add ~/.ssh/gvdp_github'
+
+function lip() {
+  ip addr | awk '/inet .* eth0/ {print $2}' | sed 's/\/20//'
+}
+
+alias lpath='echo $PATH | tr ":" "\n"' # list the PATH separated by new lines
+
+
+###############
+# FZF
+##############
+
+export FZF_DEFAULT_OPTS='--height 50% --border'
+export FZF_DEFAULT_COMMAND='fd -I --type f'
+
+alias fzp="fzf --preview 'cat {}'"
+alias of='vi $(fzf)'
+alias crep='cd $(fd -d 2 --type d . ~/code | fzf)'
+alias vrep='vim $(fd -d 2 --type d . ~/code | fzf)'
+alias fcode='code $(fd -d 2 --type d . ~/code | fzf)'
+# todo: make sure when running this the command is kept in history so it can be repeated
+function yr() {
+ yarn $(cat package.json | jq .scripts | jq 'keys' | sed 's/[\",]//g' | sed '/[][]/d' | fzf)
+}
+# todo: only do the lint staged when there is some lint staged config
+unalias grbc
+function grbc() {
+		lintConfig=$(cat package.json | jq '."lint-staged"')
+		echo $lintConfig
+		if [ -z "$lintConfig" ]
+		then
+		  npx lint-staged --relative
+		fi		
+		git rebase --continue
+}
+
+# function for timing shell startup
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+gci() {
+	gh issue create --title "$1" 
+}
+
+alias pr="docker-compose run php"
+alias pft="pr composer test"
+alias pri="pr composer install"
+alias pra="pr php artisan"
+alias prr="pr php artisan migrate:fresh --seed"
+alias prm="pr php artisan migrate"
+alias pds="pr php artisan db:seed"
+alias ptt="pr composer test"
+
+# ptt() {
+#   docker-compose run php sh -c "./vendor/bin/phpunit"
+# }
+alias pp="docker-compose run php sh -c \"php -d memory_limit=-1 ./vendor/bin/pest\""
+ppf() {
+# todo: autocomplete with possible tests?
+  docker-compose run php sh -c "./vendor/bin/pest --filter $1"
+}
+
+alias pl="make lint-fix && make phpstan"
+
+
+# this will run the test again if the make script exists but the test failed
+ptr() {
+    make test-run-single test=$1 || docker-compose run php sh -c "./vendor/bin/phpunit --filter $1 --stop-on-failure"
+}
+ptrd() {
+    make test-run-single test=$1 || docker-compose run debug sh -c "./vendor/bin/phpunit --filter $1 --stop-on-failure"
+}
+pbr() {
+    make test-single-feature feature=$1 || docker-compose run debug sh -c "./vendor/bin/behat $1"
+}
+
+
+ptrc() {
+    make test-run-single-clean test=$1
+}
+
+# better for logs maybe, not sure of the rest
+#
+# preview command to choose other one
+# export BAT_THEME=$(bat --list-themes | fzf --preview="bat --theme={} --color=always storage/logs/laravel.log")
+export BAT_THEME=ansi
+
+# disk space functions for rpi
+# du -h -d 2 /media/gvdp/Schefke/ | sort -h -r | head -n 10
+# df -h
+
+eval "$(starship init zsh)"
+# eval "$(zoxide init zsh)"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+[[ -f /Users/gvdp/.docker/init-zsh.sh ]] && source /Users/gvdp/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+
+if command -v rbenv > /dev/null 2>&1; then
+eval "$(rbenv init - zsh)"
+fi
+# pnpm
+export PNPM_HOME="/Users/gvdp/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
