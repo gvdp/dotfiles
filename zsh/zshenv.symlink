@@ -23,3 +23,4 @@ typeset -aU path
 if [[ -d /opt/homebrew ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+. "$HOME/.cargo/env"
