@@ -71,6 +71,7 @@ plugins=(
   vi-mode
   git
   npm
+  git-trim
 )
 
 
