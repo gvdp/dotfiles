@@ -205,7 +205,7 @@ alias ghi="gh issue create --title"
 alias note="vim ~/Documents/Notes/Inbox.md"
 alias notes="vim ~/Documents/Notes"
 # todo: move to npm plugin and make it dependent on lockfile which manager to use
-alias yadd="yarn add --dev --exact"
+# alias yadd="yarn add --dev --exact"
 
 if type batcat > /dev/null; then
   alias cat="batcat"
