@@ -29,13 +29,22 @@ function yadd() {
 
   }
 
+  function yl() {
+    if [ -z "$1" ];
+    then 
+      y lint
+      return
+    else
+      y lint:$1
+    fi
+  } 
 
 alias ys='y start'
 alias yt='y test'
 alias ysm='ENABLE_MIRAGE=true MSW_ENABLED=true VITE_ENABLE_MSW=true y start'
 alias ysl='API_HOST=http://localhost:8880/ y start'
 alias yte='y test:ember'
-alias yl='y lint'
+# alias yl='y lint'
 alias yll='ylf && yl'
 alias ylf='y lint:format:fix'
 alias ytw='y test:watch'
