@@ -16,3 +16,5 @@
     browse = "!gh repo view --web"
 	undo = reset --soft HEAD~1
 
+[user]
+	email = glenn.vandeputte@verhaert.digital

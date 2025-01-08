@@ -18,9 +18,11 @@ function nt() {
 }
 
 function y() {
-  [ -e yarn.lock ] && yarn ${1-install} && return
-  [ -e package-lock.json ] && if [ -z "$1" ]; then npm install; else npm run $1; fi && return
-  [ -e pnpm-lock.yaml ] && if [ -z "$1" ]; then pnpm install; else pnpm $1; fi && return
+  for dir in "." ".." "../.."; do
+    [ -e "$dir/yarn.lock" ] && if [ -z "$1" ]; then yarn install; else yarn run $1; fi && return
+    [ -e "$dir/package-lock.json" ] && if [ -z "$1" ]; then npm install; else npm run $1; fi && return
+    [ -e "$dir/pnpm-lock.yaml" ] && if [ -z "$1" ]; then pnpm install; else pnpm $1; fi && return
+  done
 }
 
 function yadd() {
