@@ -26,20 +26,24 @@ function y() {
 }
 
 function yadd() {
- [ -e yarn.lock ] && yarn add --dev --exact $1  && return
+  [ -e yarn.lock ] && yarn add --dev --exact $1  && return
   [ -e pnpm-lock.yaml ] && pnpm add $1 --save-dev --save-exact && return
+}
 
-  }
+function yad() {
+  [ -e yarn.lock ] && yarn add --exact $1  && return
+  [ -e pnpm-lock.yaml ] && pnpm add $1 --save --save-exact && return
+}
 
-  function yl() {
-    if [ -z "$1" ];
-    then 
-      y lint
-      return
-    else
-      y lint:$1
-    fi
-  } 
+function yl() {
+  if [ -z "$1" ];
+  then 
+    y lint
+    return
+  else
+    y lint:$1
+  fi
+} 
 
 alias ys='y start'
 alias yt='y test'
