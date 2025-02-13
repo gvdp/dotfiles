@@ -255,6 +255,7 @@ export FZF_DEFAULT_COMMAND='fd -I --type f'
 alias fzp="fzf --preview 'cat {}'"
 alias of='vi $(fzf)'
 alias crep='cd $(fd -d 2 --type d . ~/code | fzf)'
+alias p='cd $(fd -d 2 --type d . | fzf)'
 alias vrep='vim $(fd -d 2 --type d . ~/code | fzf)'
 alias fcode='code $(fd -d 2 --type d . ~/code | fzf)'
 # todo: make sure when running this the command is kept in history so it can be repeated
