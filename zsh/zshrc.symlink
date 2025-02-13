@@ -284,6 +284,8 @@ gci() {
 	gh issue create --title "$1" 
 }
 
+# todo: get these out of the main zshrc file
+
 alias pr="docker-compose run php"
 alias pft="pr composer test"
 alias pri="pr composer install"
