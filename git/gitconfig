@@ -3,9 +3,15 @@
     # If the file doesn't exist it is silently ignored
     path = ~/.gitconfig-local
 
+[includeIf "hasconfig:remote.*.url:git@git.verhaert.dev:*/**"]
+  path = ~/dotfiles/work
+
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+  path = ~/dotfiles/git/personal
+
 [core]
 	autocrlf = input
-	excludesfile = /Users/gvdp/.globalgitignore
+	excludesfile = ~/.globalgitignore
 	editor = vim
 [init]
 	templatedir = ~/.git-templates
@@ -13,8 +19,8 @@
 [pull]
 	rebase = true
 [alias]
-    browse = "!gh repo view --web"
+  browse = "!gh repo view --web"
 	undo = reset --soft HEAD~1
 
 [user]
-	email = glenn.vandeputte@verhaert.digital
+	name = gvdp
