@@ -4,7 +4,7 @@
     path = ~/.gitconfig-local
 
 [includeIf "hasconfig:remote.*.url:git@git.verhaert.dev:*/**"]
-  path = ~/dotfiles/work
+  path = ~/dotfiles/git/work
 
 [includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
   path = ~/dotfiles/git/personal
