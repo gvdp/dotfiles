@@ -25,5 +25,21 @@ config.window_background_image_hsb = {
 	saturation = 1.0,
 }
 
+config.keys = {
+	{
+		key = "Enter",
+		mods = "CMD",
+		action = wezterm.action.SplitPane({
+			direction = "Left",
+			size = { Percent = 50 },
+		}),
+	},
+	{
+		key = "w",
+		mods = "CMD",
+		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+	},
+}
+
 -- and finally, return the configuration to wezterm
 return config
