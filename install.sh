@@ -66,7 +66,7 @@ backup() {
 setup_symlinks() {
     title "Creating symlinks"
     ./run-dotbot
-    mackup restore
+    # mackup restore
 }
 
 setup_git() {
