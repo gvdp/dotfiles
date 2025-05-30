@@ -305,6 +305,7 @@ ppf() {
 }
 
 alias pl="make lint-fix && make phpstan"
+alias yup="y update-graphql-types"
 
 
 # this will run the test again if the make script exists but the test failed
