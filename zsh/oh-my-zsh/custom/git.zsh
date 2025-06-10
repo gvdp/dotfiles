@@ -7,7 +7,7 @@ alias grim="gf && grbi origin/main"
 
 function gprune() {
   echo "pruning with $(git_main_branch)"
-  gbda && git remote prune origin
+  gbda && git remote prune origin && g trim
 }
 
 alias gmm="git fetch && git merge origin/$(git_main_branch) --no-edit && git push"
