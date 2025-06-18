@@ -10,6 +10,8 @@ local config = wezterm.config_builder()
 -- config.color_scheme = "Batman"
 config.color_scheme = "Ocean (dark) (terminal.sexy)"
 
+config.font = wezterm.font "CommitMono"
+
 config.use_fancy_tab_bar = true
 config.window_background_image = wezterm.home_dir .. "/dotfiles/wezterm/backdrops/planet_express.jpg"
 
