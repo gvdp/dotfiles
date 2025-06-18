@@ -26,8 +26,8 @@ function y() {
 }
 
 function yadd() {
-  [ -e yarn.lock ] && yarn add --dev --exact $1  && return
-  [ -e pnpm-lock.yaml ] && pnpm add $1 --save-dev --save-exact && return
+  [ -e yarn.lock ] && yarn add --dev --exact "$@"  && return
+  [ -e pnpm-lock.yaml ] && pnpm add "$@" --save-dev --save-exact && return
 }
 
 function yad() {
