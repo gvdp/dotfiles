@@ -21,5 +21,9 @@ end
 
 map("n", "<leader>s", ":update<cr>", { noremap = true })
 map("n", "<leader>q", ":quit<cr>", { noremap = true })
+
+
 map("n", "<leader>r", ":source ~/.config/nvim/init.lua<cr>", { noremap = true })
 map("n", "<leader>f", ":! npx prettier --write %<cr>", { noremap = true })
+
+
