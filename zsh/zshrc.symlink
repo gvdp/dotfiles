@@ -285,17 +285,8 @@ gci() {
 }
 
 # todo: get these out of the main zshrc file
-
-alias pr="docker-compose run php"
-alias pft="pr composer test"
-alias pri="pr composer install"
-alias pra="pr php artisan"
-alias prr="pr php artisan migrate:fresh --seed"
-alias prm="pr php artisan migrate"
-alias pds="pr php artisan db:seed"
-alias ptt="pr composer test"
-alias c="composer"
-
+alias ecu="ember-project-cli update --until-latest"
+alias glo="glab repo view --web"
 # ptt() {
 #   docker-compose run php sh -c "./vendor/bin/phpunit"
 # }
@@ -355,10 +346,10 @@ export PATH="$PNPM_HOME:$PATH"
 
 
 # Herd injected NVM configuration
-export NVM_DIR="/Users/gvdp/Library/Application Support/Herd/config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="/Users/gvdp/Library/Application Support/Herd/config/nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
+# [[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
 
 # Herd injected PHP binary.
 export PATH="/Users/gvdp/Library/Application Support/Herd/bin/":$PATH
