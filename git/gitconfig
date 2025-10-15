@@ -3,11 +3,17 @@
     # If the file doesn't exist it is silently ignored
     path = ~/.gitconfig-local
 
+
 [includeIf "hasconfig:remote.*.url:git@git.verhaert.dev:*/**"]
   path = ~/dotfiles/git/work
 
 [includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
   path = ~/dotfiles/git/personal
+
+# Exception: Specific GitHub repo for work
+[includeIf "hasconfig:remote.*.url:git@github.com:scimm-eu/nextjs-with-supabase.git"]
+  path = ~/dotfiles/git/work
+
 
 [core]
 	autocrlf = input
