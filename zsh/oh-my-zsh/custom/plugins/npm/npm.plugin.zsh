@@ -47,7 +47,7 @@ function yl() {
 
 alias ys='y start'
 alias yt='y test'
-alias ysm='ENABLE_MIRAGE=true MSW_ENABLED=true VITE_ENABLE_MSW=true y start'
+alias ysm='ENABLE_MIRAGE=true MSW_ENABLED=true VITE_MSW_ENABLED=true VITE_ENABLE_MSW=true y start'
 alias ysl='API_HOST=http://localhost:8880/ y start'
 alias yte='y test:ember'
 # alias yl='y lint'
