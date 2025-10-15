@@ -4,3 +4,5 @@
 /.local-script/
 .DS_Store
 .accounts
+.gitlab-ci-local/
+.gitlab-ci-local-variables.yml
