@@ -105,7 +105,7 @@ VI_MODE_SET_CURSOR=true
 # User configuration
 
 # If a local zshrc exists, source it
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+# [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # use nvim, but don't make me think about it
 [[ -n "$(command -v nvim)" ]] && alias vim="nvim"
@@ -123,9 +123,6 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
-
-# If a ~/.zshrc.local exists, source it
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 if [ "$CHECK_DOTFILE_STATUS" = "true" ]; then
     status_file="$ZDOTFILES/check-status.sh"
@@ -153,16 +150,12 @@ date ()
     fi
 }
 
-
+echo "Setting up aliases..."
 alias lg="lazygit"
 
 # alias l="ls -lah ${colorflag}"
 # alias la="ls -AF ${colorflag}"
 # alias lld="ls -l | grep ^d"
-
-function lk {
-  cd "$(walk "$@")"
-}
 
 if command -v lsd > /dev/null 2>&1; then
     # Set the alias if the program is available
@@ -316,6 +309,16 @@ ptrc() {
     make test-run-single-clean test=$1
 }
 
+
+# If a ~/.zshrc.local exists, source it
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# https://github.com/antonmedv/walk?tab=readme-ov-file#setup
+function lk {
+  cd "$(walk "$@" --icons --preview --with-border)"
+}
+export WALK_MAIN_COLOR="201"
+
 # better for logs maybe, not sure of the rest
 #
 # preview command to choose other one
@@ -365,3 +368,8 @@ export HERD_PHP_82_INI_SCAN_DIR="/Users/gvdp/Library/Application Support/Herd/co
 
 # Herd injected PHP 8.4 configuration.
 export HERD_PHP_84_INI_SCAN_DIR="/Users/gvdp/Library/Application Support/Herd/config/php/84/"
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
