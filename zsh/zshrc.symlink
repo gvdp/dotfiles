@@ -69,6 +69,7 @@ RIPGREP_CONFIG_PATH="$DOTFILES/ripgrep/ripgreprc"
 
 plugins=(
   vi-mode
+  docker
   git
   npm
   git-trim
