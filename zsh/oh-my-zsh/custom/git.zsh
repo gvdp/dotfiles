@@ -27,9 +27,70 @@ function gign() {
   echo $1 >> .gitignore
 }
 
+gcsc() {
+  local msg=""
+  local forced_type=""
+  local type=""
+  local scope=""
 
-## appy git diff from boilerplate
-## git remote add boilerplate git@git.bagaar.be:shelf/front-end/ember/ember-project-boilerplate.git
-## git remote update
-## git diff boilerplate remotes/boilerplate/main --diff-filter=d | git apply
+  # --- Parse args ---
+  for arg in "$@"; do
+    case $arg in
+      --type=*)
+        forced_type="${arg#*=}"
+        ;;
+      *)
+        msg="$arg"
+        ;;
+    esac
+  done
 
+  if [[ -z "$msg" ]]; then
+    echo "Usage: gcsc \"message\" [--type=chore]"
+    return 1
+  fi
+
+  # --- Types list ---
+  local types=("feat" "fix" "docs" "style" "refactor" "test" "chore" "ci" "perf")
+
+  # --- Step 1: Determine commit type ---
+  if [[ -n "$forced_type" ]]; then
+    type="$forced_type"
+  else
+    echo "Select commit type:"
+    select t in "${types[@]}"; do
+      [[ -n "$t" ]] && type="$t" && break
+      echo "Invalid selection."
+    done
+  fi
+
+  # --- Step 2: Determine scope (package) ---
+  # Case A: User is inside packages/<pkg>
+  local current_dir="$(pwd)"
+  if [[ "$current_dir" == *"/packages/"* ]]; then
+    # extract the package folder name
+    scope="${current_dir##*/packages/}"
+    scope="${scope%%/*}"
+
+  else
+    # Case B: Not inside a package → list all packages
+    if [[ ! -d "packages" ]]; then
+      echo "Error: No packages/ directory found."
+      return 1
+    fi
+
+    local scopes=("${(@f)$(ls -1 packages)}")
+
+    echo "Select package scope:"
+    select s in "${scopes[@]}"; do
+      [[ -n "$s" ]] && scope="$s" && break
+      echo "Invalid selection."
+    done
+  fi
+
+  # --- Step 3: Final commit ---
+  local final_msg="${type}(${scope}): ${msg}"
+  echo "Committing: \"$final_msg\""
+
+  git commit -m "$final_msg"
+}
