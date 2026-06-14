@@ -7,6 +7,5 @@
 .gitlab-ci-local/
 .gitlab-ci-local-variables.yml
 
-.claude/settings.local.json
-
 **/.claude/settings.local.json
+.worktrees
