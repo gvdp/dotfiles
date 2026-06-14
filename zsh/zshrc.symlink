@@ -280,6 +280,9 @@ gci() {
 # todo: get these out of the main zshrc file
 alias ecu="ember-project-cli update --until-latest"
 alias glo="glab repo view --web"
+
+
+alias fk="fork ."
 # ptt() {
 #   docker-compose run php sh -c "./vendor/bin/phpunit"
 # }
@@ -373,3 +376,6 @@ export HERD_PHP_84_INI_SCAN_DIR="/Users/gvdp/Library/Application Support/Herd/co
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
+# Added by Antigravity
+export PATH="/Users/gvdp/.antigravity/antigravity/bin:$PATH"
