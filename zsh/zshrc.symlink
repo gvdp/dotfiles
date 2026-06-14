@@ -194,8 +194,7 @@ alias dka='docker kill $(docker ps -q)'
 
 alias mu="make up"
 
-alias llog="tail -f -n 100 storage/logs/laravel.log | bat --paging=never -l log"
-
+alias llog="tail -f -n 100 storage/logs/laravel.log"
 alias ghi="gh issue create --title"
 alias note="vim ~/Documents/Notes/Inbox.md"
 alias notes="vim ~/Documents/Notes"
