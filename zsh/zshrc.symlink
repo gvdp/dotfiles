@@ -70,6 +70,7 @@ RIPGREP_CONFIG_PATH="$DOTFILES/ripgrep/ripgreprc"
 plugins=(
   vi-mode
   docker
+  docker-compose
   git
   npm
   git-trim
@@ -189,7 +190,6 @@ alias cf="cd $CODE_FOLDER"
 
 alias dps="docker ps"
 alias d="docker"
-alias dc="docker-compose"
 alias dka='docker kill $(docker ps -q)'
 
 alias mu="make up"
