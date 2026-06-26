@@ -2,7 +2,7 @@
 alias pr="docker-compose run --rm php"         # run command in php container
 
 ## Composer
-alias c="composer"
+alias c="XDEBUG_MODE=off composer"
 alias cgd="composer generate-docs"
 alias pri="pr composer install"                # install dependencies (via Docker)
 
@@ -13,7 +13,7 @@ alias ctf="c test -- --filter"                 # run single test by name: ctf <n
 alias ptf="pr composer test -- --filter"       # run single test by name (via Docker): ptf <name>
 
 ## Linting & static analysis
-alias plp="c pint -- --dirty && c phpstan"     # pint (dirty files) + phpstan
+alias plp="c lint -- --dirty && c phpstan"      # lint (dirty files) + phpstan
 alias pla="plp && c test"                      # full pipeline: lint + phpstan + tests
 
 ## Artisan
