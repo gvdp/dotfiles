@@ -13,7 +13,13 @@ alias ctf="c test -- --filter"                 # run single test by name: ctf <n
 alias ptf="pr composer test -- --filter"       # run single test by name (via Docker): ptf <name>
 
 ## Linting & static analysis
-alias plp="c lint -- --dirty && c phpstan"      # lint (dirty files) + phpstan
+function plp() {  # pint (dirty files, falls back to vendor/bin/pint) + phpstan
+  if c run-script --list 2>/dev/null | grep -q '\bpint\b'; then
+    c pint -- --dirty
+  else
+    vendor/bin/pint --dirty
+  fi && c phpstan
+}
 alias pla="plp && c test"                      # full pipeline: lint + phpstan + tests
 
 ## Artisan
@@ -39,6 +45,8 @@ function phelp() {
       echo "  ${match[1]}"
       section="${match[1]}"
     elif [[ $line =~ ^alias[[:space:]]+([^=]+)=.*#[[:space:]]+(.+) ]]; then
+      printf "    %-6s  %s\n" "${match[1]}" "${match[2]}"
+    elif [[ $line =~ ^function[[:space:]]+([a-zA-Z0-9_]+)\(\).*#[[:space:]]+(.+) ]]; then
       printf "    %-6s  %s\n" "${match[1]}" "${match[2]}"
     fi
   done < "$file"
