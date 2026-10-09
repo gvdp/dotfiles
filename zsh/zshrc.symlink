@@ -375,7 +375,7 @@ export HERD_PHP_84_INI_SCAN_DIR="/Users/gvdp/Library/Application Support/Herd/co
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+(( $+commands[pyenv] )) && eval "$(pyenv init - zsh)"
 
 # Added by Antigravity
 export PATH="/Users/gvdp/.antigravity/antigravity/bin:$PATH"
