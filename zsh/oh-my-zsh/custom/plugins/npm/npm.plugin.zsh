@@ -46,6 +46,21 @@ function y() {
   esac
 }
 
+# ysf → fuzzy-pick a package.json script and run it with the correct manager
+function ysf() {
+  [ -f package.json ] || { echo "No package.json found."; return 1; }
+
+  local script
+  script=$(jq -r '.scripts // {} | to_entries[] | "\(.key)\t\(.value)"' package.json \
+    | fzf --delimiter='\t' --with-nth=1 --query="$*" --prompt='script> ' \
+          --preview='echo {2}' --preview-window=down,3,wrap \
+    | cut -f1)
+
+  [ -z "$script" ] && return
+  print -s "y $script"  # add to history so up-arrow re-runs it
+  y "$script"
+}
+
 # yadd → add dev dependency using correct manager
 function yadd() {
   pm=$(_find_pm)
