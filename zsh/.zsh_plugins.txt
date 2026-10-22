@@ -1,3 +1,4 @@
 djui/alias-tips
 zsh-users/zsh-syntax-highlighting
 Aloxaf/fzf-tab
+jasonmccreary/git-trim
