@@ -80,8 +80,10 @@ plugins=(
 
 
 
-source $ZSH/oh-my-zsh.sh
 source ${ZDOTFILES:-~}/.antidote/antidote.zsh
+# completion-only bundles must be on fpath before oh-my-zsh runs compinit
+source <(antidote bundle zsh-users/zsh-completions path:src kind:fpath)
+source $ZSH/oh-my-zsh.sh
 antidote load ${ZDOTFILES:-$HOME}/.zsh_plugins.txt
 
 
