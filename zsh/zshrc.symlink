@@ -380,3 +380,6 @@ eval "$(pyenv init - zsh)"
 
 # Added by Antigravity
 export PATH="/Users/gvdp/.antigravity/antigravity/bin:$PATH"
+
+# Pi
+export PATH="/Users/gvdp/.volta/tools/image/node/24.18.0/bin:$PATH"
